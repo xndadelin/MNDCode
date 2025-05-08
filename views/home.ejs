@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+    <style>
+        /* MAIN CONTENT */
+        .main-container 
+        {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f1f9ff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-title 
+        {
+            font-size: 28px;
+            color: #0077b6;
+            margin-bottom: 15px;
+        }
+
+        .main-content 
+        {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-content .card 
+        {
+            flex: 1;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .main-content .card:hover 
+        {
+            transform: translateY(-5px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title 
+        {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #0077b6;
+        }
+
+        .card-description 
+        {
+            font-size: 14px;
+            color: #333;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <%- include('./partials/header.ejs') %>
+    </header>
+
+    <main>
+
+        <div class="main-container">
+            <div class="main-title">Bun venit pe TheNume!</div>
+            <div class="main-content">
+                <div class="card">
+                    <div class="card-title">Lectii Interactive</div>
+                    <div class="card-description">
+                        Explorează lecții interactive și ușor de înțeles, special create pentru a-ți îmbunătăți abilitățile de programare.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Compiler Online</div>
+                    <div class="card-description">
+                        Rulează și testează codul tău direct în browser, fără să fie nevoie de setări complicate.
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Exerciții și Teste</div>
+                    <div class="card-description">
+                        Verifică-ți cunoștințele cu exerciții practice și teste interactive.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
+
+    <footer>
+        <%- include('./partials/footer.ejs') %>
+    </footer>
+    
+
+
+</body>
+</html>
