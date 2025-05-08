@@ -2,6 +2,88 @@
 <html lang="en">
     <head>
         <%- include('./partials/head.ejs') %>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+            body, main 
+            {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f8ff;
+            }
+
+            main 
+            {
+                max-width: 960px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .card 
+            {
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .card h2 
+            {
+                color: #1E3A8A;
+                font-size: 1.4em;
+                margin-top: 0;
+                margin-bottom: 15px;
+            }
+
+            .card p 
+            {
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+
+            .card pre 
+            {
+                background-color: #f5f7ff;
+                border-radius: 5px;
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            .card code 
+            {
+                font-family: 'Courier New', monospace;
+                font-size: 0.95em;
+            }
+
+            .copy-btn 
+            {
+                background-color: #1E3A8A;
+                color: #ffffff;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                font-size: 0.95em;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .copy-btn:hover 
+            {
+                background-color: #3B82F6;
+            }
+
+            .page-title 
+            {
+                text-align: center;
+                font-size: 2.2em;
+                color: #1943b5;
+                margin-bottom: 30px;
+                font-weight: 700;
+            }
+
+        </style>
     </head>
     <body>
         <header>
@@ -9,10 +91,249 @@
         </header>
         
         <main>
-            <h1> LECTIA 1</h1><br>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h1 class="page-title">Ciurul lui Eratostene</h1>
+
+            <div class="card">
+                <h2>Introducere și Algoritm de Bază</h2>
+                <p>Se utilizează pentru a determina toate numerele prime mai mici sau egale cu <strong>N</strong>. Prin definiție, un număr <em>x</em> este prim dacă și numai dacă are exact doi divizori. Numărul 2 este primul număr prim și este singurul număr par prim.</p>
+                <p>Vom utiliza un vector caracteristic, numit <code>ciur</code>, în care vom marca astfel:</p>
+                <ul>
+                    <li><code>ciur[0] = ciur[1] = 1</code> (nu sunt prime);</li>
+                    <li><code>ciur[2] = 0</code>, și apoi marcăm cu 1 toți multiplii lui 2 &ge; 4;</li>
+                    <li>Apoi verificăm doar numerele impare &ge; 3.</li>
+                </ul>
+                <pre><code>
+    #include &lt;iostream&gt;
+    using namespace std;
+          
+    int ciur[1000003], N;
+    int main()
+    {
+        int i,j;
+        cin >> N;
+        ciur[0]=ciur[1]=1;
+          
+        for(i = 4; i <= N ; i += 2)
+            ciur[i] = 1;
+          
+        for(i = 3; i <= N ; i += 2)
+            if (ciur[i] == 0)
+                for(j = 2 * i; j <= N; j += i)
+                    ciur[j] = 1;
+          
+        for(i = 0; i <= N ; i++)
+            if (ciur[i] == 0)
+                cout << i << " ";
+        return 0;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+          
+                <h3>Observație</h3>
+                <p>Dacă N = 100, sunt afișate 25 de numere prime: <br>
+                <code>2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97</code></p>
+          
+                <h2>Optimizare Parțială</h2>
+                <p>Evitată marcarea multiplilor deja marcați — verificăm doar <strong>multiplii impari</strong> ai numerelor impare.</p>
+                <pre><code>
+    ciur[0]=ciur[1]=1;
+          
+    for(i = 4; i <= N ; i += 2)
+    ciur[i] = 1;
+          
+    for(i = 3; i <= N ; i += 2)
+    if (ciur[i] == 0)
+        for(j = 3 * i; j <= N; j += 2 * i)
+            ciur[j] = 1;
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+          
+                <h2>Versiune Optimizată Complet</h2>
+                <p>Se pornește de la <code>i * i</code> în loc de <code>3 * i</code>, iar pasul rămâne dublul lui i. Complexitate: <strong>O(N log log N)</strong>.</p>
+                <pre><code>ciur[0]=ciur[1]=1;
+          
+    for(i = 4; i <= N ; i += 2)
+    ciur[i] = 1;
+          
+    for(i = 3; i * i <= N ; i += 2)
+    if (ciur[i] == 0)
+        for(j = i * i; j <= N; j += 2*i)
+            ciur[j] = 1;
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+          
+                <h3>Observație finală</h3>
+                <p>Complexitatea algoritmului optim este <strong>O(N log log N)</strong>. De exemplu, pentru <code>N = 1.000.000</code>, se efectuează aproximativ 4 &times; N pași.</p>
+            </div>
+            <div class="card">
+                <h2>Numere prime mai mici sau egale cu N</h2>
+                <p>O primă aplicație a ciurului lui Eratostene este să memorăm numerele prime mai mici sau egale cu <em>N</em>, odată cu construirea ciurului. De exemplu, pentru <em>N = 1000000</em> vom obține aproximativ 78498 de numere prime. Aceste numere pot fi salvate într-un vector <code>prim</code>, iar numărul lor va fi stocat în variabila <code>k</code>.</p>
+                <pre><code>
+    #include &lt;iostream&gt;
+    using namespace std;
+    
+    int ciur[1000003], N; // determinăm numerele prime
+    int prim[80000], k;    // vectorul cu numere prime
+    
+    int main()
+    {
+        int i, j;
+        cin >> N;
+        ciur[0] = ciur[1] = 1;
+    
+        // marcăm cu 1 toate numerele pare >= 4
+        for(i = 4; i <= N; i += 2)
+            ciur[i] = 1;
+    
+        // parcurgem numerele impare >= 3
+        for(i = 3; i * i <= N; i += 2)
+            if(ciur[i] == 0) // i este prim
+                for(j = i * i; j <= N; j += 2*i)
+                    ciur[j] = 1;
+    
+        prim[1] = 2;
+        k = 1;
+        for(i = 3; i <= N; i += 2)
+            if(ciur[i] == 0)
+                prim[++k] = i;
+    
+        cout << k << " " << prim[k];
+        return 0;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru <em>N = 1000000</em> vom obține <code>k = 78498</code> numere prime (ultimul fiind 999983), iar pentru <em>N = 5000000</em> vom obține <code>k = 348513</code> (ultimul fiind 4999999).</p>
+            </div>
+          
+            <div class="card">
+                <h2>Verifică dacă un număr este prim</h2>
+                <p>O altă aplicație a ciurului este verificarea primalității unui număr dat. Observăm că un număr compus are întotdeauna un divizor prim &le; <em>√x</em>. Astfel, pentru a verifica dacă x este prim, iterăm prin lista de numere prime <code>prim</code> și testăm divizibilitatea până când <code>prim[i] * prim[i] > x</code>:</p>
+                <pre><code>
+    int estePrim(int x)
+    {
+        for(int i = 1; prim[i] * prim[i] <= x; i++)
+            if(x % prim[i] == 0)
+                return 0;
+        return 1;
+    }     
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru x = 1234567891 funcția <code>estePrim(x)</code> va returna <code>1</code> (numărul este prim), iar pentru x = 2000000001 va returna <code>0</code>.</p>
+            </div>
+          
+            <div class="card">
+                <h2>Descompunerea în factori primi</h2>
+                <p>Folosind lista de numere prime <code>prim</code>, putem descompune orice număr natural <code>x</code> în factori primi. Algoritmul parcurge fiecare factor prim atâta timp cât <code>prim[i] * prim[i] <= x</code>, contorizând de câte ori divide acesta numărul <code>x</code>, apoi afișează factorul prim și puterea sa.</p>
+                <pre><code>
+    void descompunere(int x)
+    {
+        int i = 1;
+        while (prim[i] * prim[i] <= x)
+        {
+            int p = 0;
+            while (x % prim[i] == 0)
+            {
+                x /= prim[i];
+                p++;
+            }
+            if (p != 0)
+                cout << prim[i] << " la puterea " << p << endl;
+            i++;
+        }
+        if (x != 1)
+            cout << x << " la puterea 1" << endl;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru <code>x = 2000000000</code> funcția va afișa:<br>2 la puterea 7<br>5 la puterea 6</p>
+            </div>
+          
+            <div class="card">
+                <h2>Numărul de divizori ai numerelor de la 1 la N</h2>
+                <p>Folosind o abordare de tip ciur, putem număra divisorii fiecărui număr de la 1 la <em>N</em>. Pentru aceasta, inițial considerăm <code>nrDIV[i] = 0</code> pentru toate i. Apoi, pentru fiecare i de la 1 la N și fiecare multiplu j = i, 2*i, 3*i,... ≤ N, incrementăm <code>nrDIV[j]</code>. Astfel, la final, <code>nrDIV[x]</code> va conține numărul de divizori al numărului x.</p>
+                <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+          
+    int nrDIV[1000003], N;
+          
+    int main()
+    {
+        int i, j;
+        cin >> N;
+          
+        // contorizăm divizorii pentru fiecare număr de la 1 la N
+        for(i = 1; i <= N; i++)
+            for(j = i; j <= N; j += i)
+                nrDIV[j]++;
+          
+        for(i = 1; i <= N; i++)
+            cout << nrDIV[i] << " ";
+        return 0;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru <em>N = 20</em> rezultatul afișat va fi: 1 2 2 3 2 4 2 4 3 4 2 6 2 4 4 5 2 6 2 6. Observăm că un număr prim are exact 2 divizori.</p>
+            </div>
+          
+            <div class="card">
+                <h2>Suma divizorilor ai numerelor de la 1 la N</h2>
+                <p>O abordare similară poate calcula suma tuturor divizorilor pentru fiecare număr de la 1 la <em>N</em>. Pentru fiecare i de la 1 la N și fiecare multiplu j = i, 2*i, 3*i,... ≤ N, adunăm <code>i</code> la <code>sumaDIV[j]</code>. La sfârșit, <code>sumaDIV[x]</code> va conține suma divizorilor numărului x.</p>
+                <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+          
+    int sumaDIV[1000003], N;
+          
+    int main()
+    {
+        int i, j;
+        cin >> N;
+          
+        // calculăm suma divizorilor pentru fiecare număr de la 1 la N
+        for(i = 1; i <= N; i++)
+            for(j = i; j <= N; j += i)
+                sumaDIV[j] += i;
+          
+        for(i = 1; i <= N; i++)
+            cout << sumaDIV[i] << " ";
+        return 0;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru <em>N = 20</em> rezultatul afișat va fi: 1 3 4 7 6 12 8 15 13 18 12 28 14 24 24 31 18 39 20 42.</p>
+            </div>
+          
+            <div class="card">
+                <h2>Indicatorul lui Euler φ (funcția totient)</h2>
+                <p>Indicatorul lui Euler φ(n) reprezintă numărul de întregi ≤ n care sunt prime între ei cu n (divizor comun maxim = 1). Putem calcula φ pentru toate numerele până la N folosind o abordare de tip ciur: inițial setăm <code>φ[i] = i - 1</code> pentru fiecare i. Apoi, pentru fiecare i de la 2 la N, decrementăm φ[j] pentru fiecare multiplu j = 2*i, 3*i,... ≤ N cu valoarea φ[i], obținând astfel valorile finale ale lui φ.</p>
+                <pre><code>#include &lt;iostream&gt;
+    using namespace std;
+          
+    int phi[1000003], N;
+          
+    int main()
+    {
+        int i, j;
+        cin >> N;
+          
+        // inițializăm φ[i] = i - 1
+        for(i = 1; i <= N; i++)
+            phi[i] = i - 1;
+          
+        // aplicăm principiul ciurului pentru φ
+        for(i = 2; i <= N; i++)
+            for(j = 2*i; j <= N; j += i)
+                phi[j] -= phi[i];
+          
+        for(i = 1; i <= N; i++)
+            cout << phi[i] << " ";
+        return 0;
+    }
+                </code></pre>
+                <button class="copy-btn">Copiază Codul</button>
+                <p><em>Observație:</em> de exemplu, pentru <em>N = 12</em> rezultatul afișat va fi: 0 1 2 2 4 2 6 4 6 4 10 4 (valoarea φ(12) = 4, numărul de întregi mai mici decât 12 și coprimi cu 12: 1, 5, 7, 11).</p>
+            </div>
         </main>
+          
 
         <footer>
             <%- include('./partials/footer.ejs') %>
