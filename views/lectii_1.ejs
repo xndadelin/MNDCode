@@ -360,13 +360,25 @@
                         console.error('Eroare la copiere:', err);
                     });
                 } else {
-                    console.error('Clipboard API nu este disponibil.');
-                    // Optionally, you can add a fallback using execCommand here
+                    // Fallback pentru browsere fără Clipboard API
+                    const textarea = document.createElement('textarea');
+                    textarea.value = code;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    try {
+                        document.execCommand('copy');
+                        button.textContent = 'Copiat!';
+                        setTimeout(() => button.textContent = 'Copiază Codul', 2000);
+                    } catch (err) {
+                        console.error('Copiere eșuată:', err);
+                    }
+                    document.body.removeChild(textarea);
                 }
             });
         });
     });
 </script>
+
 
 
     </body>
