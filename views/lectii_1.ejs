@@ -334,9 +334,32 @@
             </div>
         </main>
           
-
+        
         <footer>
             <%- include('./partials/footer.ejs') %>
         </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () 
+            {
+                const buttons = document.querySelectorAll('.copy-btn');
+                buttons.forEach(button =>
+                {
+                    button.addEventListener('click', () => 
+                    {
+                        const code = button.previousElementSibling.querySelector('code').innerText;
+                        navigator.clipboard.writeText(code).then(() => 
+                        {
+                            button.textContent = 'Copiat!';
+                            setTimeout(() => button.textContent = 'Copiază Codul', 2000);
+                        }).catch(err => 
+                        {
+                            console.error('Eroare la copiere:', err);
+                        });
+                    });
+                });
+            });
+          </script>
+
     </body>
 </html>
