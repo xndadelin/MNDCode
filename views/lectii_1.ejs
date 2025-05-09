@@ -340,26 +340,34 @@
         </footer>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function () 
-            {
-                const buttons = document.querySelectorAll('.copy-btn');
-                buttons.forEach(button =>
-                {
-                    button.addEventListener('click', () => 
-                    {
-                        const code = button.previousElementSibling.querySelector('code').innerText;
-                        navigator.clipboard.writeText(code).then(() => 
-                        {
-                            button.textContent = 'Copiat!';
-                            setTimeout(() => button.textContent = 'Copiază Codul', 2000);
-                        }).catch(err => 
-                        {
-                            console.error('Eroare la copiere:', err);
-                        });
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.copy-btn');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const codeElement = button.previousElementSibling?.querySelector('code');
+                const code = codeElement?.innerText;
+
+                if (!code) {
+                    console.error('Codul nu a putut fi găsit.');
+                    return;
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(code).then(() => {
+                        button.textContent = 'Copiat!';
+                        setTimeout(() => button.textContent = 'Copiază Codul', 2000);
+                    }).catch(err => {
+                        console.error('Eroare la copiere:', err);
                     });
-                });
+                } else {
+                    console.error('Clipboard API nu este disponibil.');
+                    // Optionally, you can add a fallback using execCommand here
+                }
             });
-          </script>
+        });
+    });
+</script>
+
 
     </body>
 </html>
