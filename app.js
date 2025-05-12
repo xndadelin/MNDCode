@@ -4,7 +4,7 @@ const app=express();
 app.set('view engine','ejs');
 
 app.listen(2000,'0.0.0.0');
-console.log("Listening for requests on port 3000...");
+console.log("Listening for requests on port 2000...");
 
 app.use(express.static('public'));
 
