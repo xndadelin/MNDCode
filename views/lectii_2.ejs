@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/lectii_2.css">
-</head>
-<body>
-    <h1>Lectia 2</h1>
-    <p>Scrie un program care sa afiseze numerele de la 1 la 10.</p>
-    
-</body>
+    <head>
+        <%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="/lectia_1.css">
+    </head>
+    <body>
+        <header>
+            <%- include('./partials/header.ejs') %>
+        </header>
+        
+        <main>
+        <h1>Lecția 2</h1>
+        <div class="intro">
+            <div class="introButtons">
+                <a class="introButton1">Teorie</a>
+                <a class="introButton2">Începe</a>
+            </div>
+            
+        </div>
+        <div class="container">
+            <div class="card">
+                <h2>Code</h2>
+                <div class="cardContent">
+
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
+                        <a><i class="fa-solid fa-minimize footerIco"></i></a> 
+                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
+                    </div>
+                    <div class="cardFooterRight">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Preview</h2>
+                <div class="cardContent">
+
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
+                        <a><i class="fa-solid fa-minimize footerIco"></i></a> 
+                        <a href="d"><i class="fa-solid fa-circle-info footerIco"></i></a>
+                    </div>
+                    <div class="cardFooterRight">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
+        </div>
+    </main>
+          
+        
+        <footer>
+            <%- include('./partials/footer.ejs') %>
+        </footer>
+
+        
+
+    </body>
 </html>
