@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 app.get('/',(req,res)=>
 {
-    res.render('home',{title:"TheName"});
+    res.render('home',{title:"AlgoGim"});
 });
 
 app.get('/compiler',(req,res)=>
