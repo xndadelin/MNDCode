@@ -154,3 +154,38 @@ main h1
     left:555px;
 }
 
+#grid
+{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    row-gap: 20px;
+}
+
+.cell
+{
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    border: solid 1.5px black;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.eliminated {
+    background-color: #ffa8a8; /* roșu deschis */
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.prime {
+    background-color: #40c057; /* verde */
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
+}
+
+
+    
