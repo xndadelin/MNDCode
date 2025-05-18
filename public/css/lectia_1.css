@@ -1,60 +1,81 @@
-body
-{
-    background-color: #f1f3f5;
-}
 
 main h1
 {
+    text-align: center;
     font-size: 40px;
     display: flex;
     justify-content: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.intro
+.teory
 {
-    display: flex;
-    justify-content: center;
-}
-
-.introButtons
-{
-    width: 300px;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:20px
 }
-.introButtons a
+#teoryCard
+{
+    padding:10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 60%;
+    height:200px;
+    background-color: #d0ebff;
+    border: solid 3px #a5d8ff;
+    border-radius: 20px;
+    min-width: 600px;
+}
+.teoryMenu
+{
+    padding:10px;
+    padding-left: 20px;
+    min-width: 200px;
+    height: 200px;
+    background-color: #d0ebff;
+    border: solid 3px #a5d8ff;
+    border-radius: 20px;
+    width: 20%;
+}
+
+.teoryMenu h2 
 {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100px;
+}
+
+.teoryCard h2 
+{
+    font-size: 24px;
+}
+
+.teoryMenuButtons
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.teoryMenuButtons button
+{
+    width: 140px;
     height: 50px;
-    text-decoration: none;
-    border: solid 3px #a5d8ff;
+    color:white;
+    border:solid 3px #228be6;
     border-radius: 20px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 25px;
-    font-weight: 600;
-    cursor: pointer;
+    font-weight: 700;
+    cursor: pointer;  
+    font-size: 16px;
+}
+#previousButton
+{
+    background-color: gray;
 }
 
-.introButton1
+#nextButton
 {
-    background-color: #74c0fc;
-    color:black;
-}
-
-.introButton2
-{
-    background-color: white;
-    color:#4eb2ff;
-}
-
-.introButtons a:hover
-{
-    background-color: #4eb2ff;
-    color: white;
+    background-color:#1864ab;
 }
 
 .container
@@ -187,5 +208,3 @@ main h1
     transition: all 0.3s ease-in-out;
 }
 
-
-    

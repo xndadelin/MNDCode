@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
-    <link rel="stylesheet" href="/lectia_2.css">
+    <link rel="stylesheet" href="/css/lectia_2.css">
     <style>
 
     </style>
@@ -13,132 +13,11 @@
     </header>
 
     <main>
-        <h1>Ciurul lui Eratostene</h1>
-        <div class="intro">
-            <div class="introButtons">
-                <a class="introButton1">Teorie</a>
-                <a class="introButton2">Începe</a>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="card">
-                <h2>Code</h2>
-                <div class="cardContent">
-                    <textarea id="code" spellcheck="false">
-function ciur(n) 
-{
-    n=150;
-    if(n>150) alert("Numărul 'n' trebuie să fie mai mic decât 150!\nSe execută pentru 150...");
-    let grid = Array(n + 1).fill(true);
-    grid[0] = grid[1] = false;
-    for (let i = 2; i * i <= n; i++) 
-    {
-        if (grid[i]) 
-        {
-            for (let j = i * i; j <= n; j += i) 
-            {
-                grid[j] = false;
-                highlight(j, 'eliminated');
-            }
-        }
-    }
-    for (let i = 2; i <= n; i++) {
-        if (grid[i]) highlight(i, 'prime');
-    }
-}
-                    </textarea>
-                </div>
-                <div class="cardFooter">
-                    <div class="cardFooterLeft">
-                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
-                        <a><i class="fa-solid fa-minimize footerIco"></i></a> 
-                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
-                    </div>
-                    <div class="cardFooterRight">
-                        <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Preview</h2>
-                <div class="cardContent">
-                    <div id="grid">
-                        <!-- Grid cells will be generated here -->
-                    </div>
-                </div>
-                <div class="cardFooter">
-                    <div class="cardFooterLeft">
-                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
-                        <a><i class="fa-solid fa-minimize footerIco"></i></a> 
-                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
-                    </div>
-                    <div class="cardFooterRight">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1>Lecția 2</h1>
     </main>
 
     <footer>
         <%- include('./partials/footer.ejs') %>
     </footer>
-
-    <script>
-        const gridContainer = document.getElementById('grid');
-        const max = 150;
-
-        function createGrid() {
-            gridContainer.innerHTML = '';
-            for (let i = 1; i <= max; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'cell';
-                cell.id = 'cell-' + i;
-                cell.textContent = i;
-                gridContainer.appendChild(cell);
-            }
-        }
-
-        function highlight(num, type) {
-            setTimeout(() => {
-                const cell = document.getElementById('cell-' + num);
-                if (cell) {
-                    cell.classList.add(type);
-                }
-            }, 15 * num); // mai rapid pentru 200 numere
-        }
-
-        function runCode() {
-            createGrid();
-            highlight(1, 'eliminated');
-            const code = document.getElementById('code').value;
-            try {
-                const func = new Function('highlight', code + '\nciur(' + max + ');');
-                func(highlight);
-            } catch (e) {
-                alert('Eroare în cod: ' + e.message);
-            }
-        }
-
-        function RunButtonPressed()
-        {
-            const btn =document.getElementById('runBtn');
-            btn.disabled = true;
-            btn.style.cursor = 'not-allowed';
-            btn.style.backgroundColor = 'gray';
-
-            runCode();
-            
-            setTimeout(()=>{
-                btn.disabled = false;
-                btn.style.cursor = 'pointer';
-                btn.style.backgroundColor = '#1864ab';
-            }, 3000);
-        }
-
-        createGrid(); 
-    </script>
 </body>
 </html>

@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('./partials/head.ejs') %>
-        <link rel="stylesheet" href="/lectia_1.css">
-    </head>
-    <body>
-        <header>
-            <%- include('./partials/header.ejs') %>
-        </header>
-        
-        <main>
-        <h1>Ciurul lui Eratostene</h1>
-        <div class="intro">
-            <div class="introButtons">
-                <a class="introButton1">Teorie</a>
-                <a class="introButton2">Începe</a>
+<head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/lectia_1.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+    </header>
+
+    <main>
+        <h1>Lecția 1 <br> Ciurul lui Eratostene</h1>
+        <div class="teory">
+            <div class="teoryMenu">
+                <h2 id="teoryTitle">Card 1</h2>
+                <h2 id="teorySubtitle">Începutul</h2>
+                <div class="teoryMenuButtons">
+                    <button onclick="previousTeory()" id="previousButton">Precedentul</button>
+                    <button onclick="nextTeory()" id="nextButton">Următorul</button>
+                </div>
             </div>
-            
+            <div id="teoryCard">
+                <h2 id="teoryText">Se utilizează pentru a determină toate numerele <code>prime</code> mai mici sau egale cu <code>N</code>. Prin definiție un număr <code>x</code> este <code>prim</code> dacă și numai dacă are doar doi divizori. Numărul 2 este primul număr prim, și este <code>singurul</code> număr par prim.</h2>
+            </div>
         </div>
+
+        <h2 style="display: flex; justify-content: center;padding-top: 50px;">Descoperă cum funcționează defapt</h2>
+
         <div class="container">
             <div class="card">
                 <h2>Code</h2>
                 <div class="cardContent">
-
+                    <textarea id="code" spellcheck="false">
+function ciur(n) 
+{
+    n=150;
+    if(n>150) alert("Numărul 'n' trebuie să fie mai mic decât 150!\nSe execută pentru 150...");
+    let grid = Array(n + 1).fill(true);
+    grid[0] = grid[1] = false;
+    for (let i = 2; i * i <= n; i++) 
+    {
+        if (grid[i]) 
+        {
+            for (let j = i * i; j <= n; j += i) 
+            {
+                grid[j] = false;
+                highlight(j, 'eliminated');
+            }
+        }
+    }
+    for (let i = 2; i <= n; i++) {
+        if (grid[i]) highlight(i, 'prime');
+    }
+}
+                    </textarea>
                 </div>
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
@@ -31,14 +65,17 @@
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight">
-
+                        <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
                     </div>
                 </div>
             </div>
+
             <div class="card">
                 <h2>Preview</h2>
                 <div class="cardContent">
-
+                    <div id="grid">
+                        <!-- Grid cells will be generated here -->
+                    </div>
                 </div>
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
@@ -52,17 +89,12 @@
                 </div>
             </div>
         </div>
-            
-            
-        </div>
     </main>
-          
-        
-        <footer>
-            <%- include('./partials/footer.ejs') %>
-        </footer>
 
-        
+    <footer>
+        <%- include('./partials/footer.ejs') %>
+    </footer>
 
-    </body>
+    <script src="/js/lectia_1.js"></script>
+</body>
 </html>
