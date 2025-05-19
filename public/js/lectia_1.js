@@ -153,13 +153,10 @@ function previousTeory()
 
 
 
-
-
-
 const gridContainer = document.getElementById('grid');
-const max = 150;
+let intervalId;
 
-function createGrid() {
+function createGrid(max) {
     gridContainer.innerHTML = '';
     for (let i = 1; i <= max; i++) {
         const cell = document.createElement('div');
@@ -170,44 +167,213 @@ function createGrid() {
     }
 }
 
-function highlight(num, type) {
-    setTimeout(() => {
-        const cell = document.getElementById('cell-' + num);
+function clearAllHighlights(N) {
+    for (let i = 1; i <= N; i++) {
+        const cell = document.getElementById('cell-' + i);
         if (cell) {
-            cell.classList.add(type);
+            cell.classList.remove('eliminated');
+            cell.style.backgroundColor = '#69db7c'; // verde = inițial
         }
-    }, 15 * num); // mai rapid pentru 200 numere
-}
-
-function runCode() {
-    createGrid();
-    highlight(1, 'eliminated');
-    const code = document.getElementById('code').value;
-    try {
-        const func = new Function('highlight', code + '\nciur(' + max + ');');
-        func(highlight);
-    } catch (e) {
-        alert('Eroare în cod: ' + e.message);
     }
 }
 
-function RunButtonPressed()
-{
-    const btn =document.getElementById('runBtn');
+function sieveAnimated(N) {
+    const isPrime = Array(N + 1).fill(true);
+    isPrime[0] = isPrime[1] = false;
+
+    let p = 2;
+    let multiple = 2 * p;
+
+    intervalId = setInterval(() => {
+        while (p <= N && !isPrime[p]) {
+            p++;
+            multiple = p * 2;
+        }
+
+        if (p > N) {
+            clearInterval(intervalId);
+            return;
+        }
+
+        if (multiple > N) {
+            p++;
+            multiple = p * 2;
+            return;
+        }
+
+        if (isPrime[multiple]) {
+            isPrime[multiple] = false;
+            const cell = document.getElementById('cell-' + multiple);
+            if (cell) cell.classList.add('eliminated');
+        }
+
+        multiple += p;
+    }, 100); // 100ms per pas
+}
+
+function runCode() {
+    const N = parseInt(document.getElementById('NInput').value);
+    if (isNaN(N) || N < 2 || N > 150) {
+        alert('Introdu un număr între 2 și 150.');
+        return;
+    }
+
+    createGrid(N);
+    clearAllHighlights(N);
+    sieveAnimated(N);
+}
+
+function RunButtonPressed() {
+    const btn = document.getElementById('runBtn');
     btn.disabled = true;
     btn.style.cursor = 'not-allowed';
     btn.style.backgroundColor = 'gray';
 
     runCode();
-    
-    setTimeout(()=>{
+
+    // Reenable button după un delay mai mic (sau când termină)
+    setTimeout(() => {
         btn.disabled = false;
         btn.style.cursor = 'pointer';
         btn.style.backgroundColor = '#1864ab';
-    }, 3000);
+    }, 6000); // aproximativ 6 secunde pt N=150
 }
 
-createGrid(); 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let currentStep = 0;
+let steps = [];
+let N = 100;
+
+function getN() {
+    const val = parseInt(document.getElementById("NInput").value);
+    return isNaN(val) ? 100 : Math.min(Math.max(val, 2), 150);
+}
+
+function isPrime(n) {
+    if (n < 2) return false;
+    for (let i = 2; i * i <= n; i++)
+        if (n % i === 0) return false;
+    return true;
+}
+
+function generateSteps() {
+    N = getN();
+    currentStep = 0;
+
+    const container = document.getElementById("stepsContainer");
+    container.innerHTML = '';
+
+    steps = [];
+    for (let p = 2; p <= Math.sqrt(N); p++) {
+        if (isPrime(p)) steps.push(p);
+    }
+
+    steps.forEach((p) => {
+        const row = document.createElement("div");
+        row.className = "stepRow";
+        row.id = "row-" + p;
+
+        const indexDiv = document.createElement("div");
+        indexDiv.className = "stepIndex";
+        indexDiv.textContent = p;
+        row.appendChild(indexDiv);
+
+        for (let i = 0; i <= N; i++) {
+            const box = document.createElement("div");
+            box.className = "cellBox";
+            box.id = `p${p}-cell-${i}`;
+
+            const value = document.createElement("span");
+            value.textContent = "1"; // Inițial toate cu 1
+
+            box.appendChild(document.createTextNode(i));
+            box.appendChild(value);
+            row.appendChild(box);
+        }
+
+        container.appendChild(row);
+    });
+
+    updateButtons();
+    colorStepsUpTo(currentStep);
+}
+
+function colorStepsUpTo(step) {
+    // Resetare celule
+    steps.forEach(p => {
+        for(let i = 0; i <= N; i++) {
+            const cell = document.getElementById(`p${p}-cell-${i}`);
+            if (!cell) continue;
+            cell.classList.remove("red", "green");
+            const span = cell.querySelector("span");
+            span.textContent = "1";
+        }
+    });
+
+    // Colorare până la pasul curent
+    for(let idx = 0; idx < step; idx++) {
+        const p = steps[idx];
+        for(let i = 0; i <= N; i++) {
+            const cell = document.getElementById(`p${p}-cell-${i}`);
+            if (!cell) continue;
+            const span = cell.querySelector("span");
+            if(i % p === 0 && i !== p) {
+                cell.classList.add("red");
+                span.textContent = "0";
+            } else {
+                cell.classList.add("green");
+                span.textContent = "1";
+            }
+        }
+    }
+}
+
+function nextStep() {
+    if (currentStep < steps.length) {
+        currentStep++;
+        colorStepsUpTo(currentStep);
+        updateButtons();
+    }
+}
+
+function prevStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        colorStepsUpTo(currentStep);
+        updateButtons();
+    }
+}
+
+function updateButtons() {
+    document.getElementById("btnPrev").disabled = currentStep === 0;
+    document.getElementById("btnNext").disabled = currentStep === steps.length;
+}
+
+// Re-generează când se schimbă N
+document.getElementById("NInput").addEventListener('change', () => {
+    generateSteps();
+});
+
+generateSteps();

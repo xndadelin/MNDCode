@@ -28,33 +28,53 @@
             </div>
         </div>
 
-        <h2 style="display: flex; justify-content: center;padding-top: 50px;">Descoperă cum funcționează defapt</h2>
+        <div id="cardsTitle">
+            <h3>Încearcă pentru N=</h3>
+            <input id="NInput" type="number" max="100" min="0" placeholder="N:2-150" value="100">
+        </div>
 
         <div class="container">
             <div class="card">
                 <h2>Code</h2>
                 <div class="cardContent">
-                    <textarea id="code" spellcheck="false">
-function ciur(n) 
+                    <textarea id="code" spellcheck="false" readonly>
+#include  
+using namespace std;
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
 {
-    n=150;
-    if(n>150) alert("Numărul 'n' trebuie să fie mai mic decât 150!\nSe execută pentru 150...");
-    let grid = Array(n + 1).fill(true);
-    grid[0] = grid[1] = false;
-    for (let i = 2; i * i <= n; i++) 
-    {
-        if (grid[i]) 
-        {
-            for (let j = i * i; j <= n; j += i) 
-            {
-                grid[j] = false;
-                highlight(j, 'eliminated');
-            }
-        }
-    }
-    for (let i = 2; i <= n; i++) {
-        if (grid[i]) highlight(i, 'prime');
-    }
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i*i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=i*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
 }
                     </textarea>
                 </div>
@@ -65,13 +85,37 @@ function ciur(n)
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight">
-                        <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card">
+                <h2>Vizualizare grafică</h2>
+                <div class="cardContent">
+                    <div class="stepsContainer" id="stepsContainer">
+                        <div class="stepsContainer" id="stepsContainer"></div>
+                    </div>
+                    <div class="startButtons">
+                        <div class="stepsContainer" id="stepsContainer"></div>
+                    </div>
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
+                        <a><i class="fa-solid fa-minimize footerIco"></i></a> 
+                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
+                    </div>
+                    <div class="cardFooterRight" id="GraficRight">
+                            <button id="btnPrev" class="GraficBtn" onclick="prevStep()" disabled>Precedent</button>
+                            <button id="btnNext" class="GraficBtn" onclick="nextStep()">Următorul</button>
                     </div>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Preview</h2>
+                <h2>Vizualizarea numerelor prime</h2>
                 <div class="cardContent">
                     <div id="grid">
                         <!-- Grid cells will be generated here -->
@@ -84,7 +128,7 @@ function ciur(n)
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight">
-
+                        <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
                     </div>
                 </div>
             </div>
