@@ -289,7 +289,7 @@ main h1
 }
 
 .cellBox span {
-    font-size: 13px;
+    font-size: 20px;
 }
 
 .cellBox.green {
@@ -336,15 +336,11 @@ main h1
 }
 
 
-.cardContent:fullscreen {
+.cardContent:fullscreen 
+{
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.cardContent textarea {
-    flex-grow: 1;
-    width: 100%;
-    font-size: 1.2rem;
-    resize: none;
-}
+

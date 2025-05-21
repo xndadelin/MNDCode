@@ -30,7 +30,7 @@
 
         <div id="cardsTitle">
             <h3>Încearcă pentru N=</h3>
-            <input id="NInput" type="number" max="100" min="0" placeholder="N:2-150" value="100">
+            <input id="NInput" type="number" max="100" min="0" placeholder="N:2-150" value="150">
         </div>
 
         <div class="container">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
-                        <a><i class="fa-solid fa-expand footerIco expandIco" id="codeFullscreenBtn" onclick="codeFullscreen()"></i></a>
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight">
@@ -57,15 +57,12 @@
                 <h2>Vizualizare grafică</h2>
                 <div class="cardContent" id="grafContent">
                     <div class="stepsContainer" id="stepsContainer">
-                        <div class="stepsContainer" id="stepsContainer"></div>
-                    </div>
-                    <div class="startButtons">
-                        <div class="stepsContainer" id="stepsContainer"></div>
+                        
                     </div>
                 </div>
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
-                        <a><i class="fa-solid fa-expand footerIco expandIco" id="grafFullscreenBtn" onclick="grafFullscreen()"></i></a>
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="grafFullscreen()"></i></a>
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight" id="GraficRight">
@@ -77,14 +74,14 @@
 
             <div class="card">
                 <h2>Vizualizarea numerelor prime</h2>
-                <div class="cardContent">
+                <div class="cardContent" id="animContent">
                     <div id="grid">
                         
                     </div>
                 </div>
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
-                        <a><i class="fa-solid fa-expand footerIco expandIco"></i></a>
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="animFullscreen()"></i></a>
                         <a><i class="fa-solid fa-circle-info footerIco"></i></a>
                     </div>
                     <div class="cardFooterRight">
