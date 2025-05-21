@@ -10,10 +10,10 @@ body
 code
 {
     font-family: monospace;
-    background-color: rgb(199, 207, 235);
     font-family: 'Fira Code', 'Courier New', monospace;
     padding: 0.8px;
     border-radius: 2.5px;
+    font-weight: 500;
 }
 
 pre

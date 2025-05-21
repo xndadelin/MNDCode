@@ -6,13 +6,32 @@
     <body>
         <header>
             <%- include('./partials/header.ejs') %>
+            <link href="/css/lectii.css" rel="stylesheet">
         </header>
 
-        <main>
-            <h1>LECTII</h1>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <main class="lesson-container">
+        <a href="lectii/1">
+            <div class="lesson-card">
+                <h2>Lecția 1</h2>
+                <p>Ciurul lui Eratostene</p>
+                <button>Deschide</button>
+            </div>
+    </a>
+
+        <div class="lesson-card">
+            <h2>Lecția 2</h2>
+            <p>Lectia 2 description</p>
+            <button>Deschide</button>
+        </div>
+
+        <div class="lesson-card">
+            <h2>Lecția 3</h2>
+            <p>Lectia 3 description</p>
+            <button>Deschide</button>
+        </div>
         </main>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
         <footer>
             <%- include('./partials/footer.ejs') %>

@@ -1,3 +1,8 @@
+* 
+{
+  box-sizing: border-box;
+}
+
 footer 
 {
     background-color: #1864ab;
@@ -12,7 +17,6 @@ footer
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -37,13 +41,33 @@ footer
     gap: 15px;
 }
 
-.social-icons a img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-    transition: filter 0.3s;
+.ico 
+{
+    font-size: 25px;
+    color: white;
 }
 
-.social-icons a img:hover {
-    filter: brightness(0) invert(0.8);
+.ico:hover
+{
+    color: rgb(224, 219, 219);
 }
+
+
+@media only screen and (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+

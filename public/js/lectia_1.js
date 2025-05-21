@@ -4,6 +4,8 @@ var teorySubtitle = document.getElementById("teorySubtitle");
 var previousButton = document.getElementById("previousButton");
 var nextButton = document.getElementById("nextButton");
 var teoryCard = document.getElementById("teoryCard");
+var code=document.getElementById("code");
+var codeh2=document.getElementById("codeh2");
 
 
 function nextTeory()
@@ -23,6 +25,46 @@ function nextTeory()
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=2*i;j<=N;j=j+1)<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";                                                                                                                                      
             teoryTitle.textContent="Card 3";
             teorySubtitle.textContent="Cod neoptimizat";
+            codeh2.textContent="Optimizare 1";
+            code.textContent=
+`#include  
+using namespace std;
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
+{
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=2*i;j<=N;j=j+1)
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
+}`;
 
             break;
 
@@ -44,6 +86,47 @@ function nextTeory()
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
             teoryTitle.textContent="Card 6";
             teorySubtitle.textContent="Cod semi-optimizat";
+            codeh2.textContent="Optimizare 2"
+            code.textContent=
+`#include  
+using namespace std;
+                <h2 id="codeh2">Code</h2>
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
+{
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
+}`;
             break;
         
         case "Card 6":
@@ -64,6 +147,47 @@ function nextTeory()
             teoryCard.style.height = "1070px";
             teoryTitle.textContent="Card 9";
             teorySubtitle.textContent="Cod optimizat";
+            codeh2.textContent="Optimizare 3"
+            code.textContent=
+`
+#include  
+using namespace std;
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
+{
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i*i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=i*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
+}`;
             break;
 
         case "Card 9":
@@ -110,6 +234,48 @@ function previousTeory()
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
             teoryTitle.textContent="Card 6";
             teorySubtitle.textContent="Cod semi-optimizat";
+            codeh2.textContent="Optimizare 2";
+            code.textContent=
+`
+#include  
+using namespace std;
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
+{
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
+}
+`;
             break;
 
         case "Card 6":
@@ -130,6 +296,48 @@ function previousTeory()
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=2*i;j<=N;j=j+1)<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";                                                                                                                                      
             teoryTitle.textContent="Card 3";
             teorySubtitle.textContent="Cod neoptimizat";
+            codeh2.textContent="Optimizare 1";
+            code.textContent=
+`
+#include  
+using namespace std;
+
+int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
+
+int main()
+{
+   int i,j;
+   cin>>N;
+   ciur[0]=ciur[1]=1;
+
+   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4
+   for(i=4;i<=N;i=i+2)
+   {
+      ciur[i] = 1;
+   }
+
+   //Parcurgem numerele impare >=3
+   for(i=3;i<=N;i=i+2)
+   {
+      if(ciur[i]==0) //i este prim,dar multiplii săi nu
+      {
+         for(j=2*i;j<=N;j=j+1)
+         {
+            ciur[j] = 1;
+         }
+      }
+   }
+
+   for(i=0;i<=N;i++)
+   {
+      if(ciur[i]==0)
+      {
+         cout<<i<<' ';
+      }
+   }
+   return 0;
+}
+`
             break;
 
         case "Card 3":  
@@ -260,11 +468,10 @@ function RunButtonPressed() {
 
 
 
-
-
 let currentStep = 0;
 let steps = [];
 let N = 100;
+let marked = []; // array pentru a reține starea fiecărui număr
 
 function getN() {
     const val = parseInt(document.getElementById("NInput").value);
@@ -281,6 +488,8 @@ function isPrime(n) {
 function generateSteps() {
     N = getN();
     currentStep = 0;
+    marked = Array(N + 1).fill(true);
+    marked[0] = marked[1] = false; // 0 și 1 nu sunt prime
 
     const container = document.getElementById("stepsContainer");
     container.innerHTML = '';
@@ -306,7 +515,7 @@ function generateSteps() {
             box.id = `p${p}-cell-${i}`;
 
             const value = document.createElement("span");
-            value.textContent = "1"; // Inițial toate cu 1
+            value.textContent = marked[i] ? "1" : "0";
 
             box.appendChild(document.createTextNode(i));
             box.appendChild(value);
@@ -321,45 +530,94 @@ function generateSteps() {
 }
 
 function colorStepsUpTo(step) {
-    // Resetare celule
-    steps.forEach(p => {
-        for(let i = 0; i <= N; i++) {
-            const cell = document.getElementById(`p${p}-cell-${i}`);
-            if (!cell) continue;
-            cell.classList.remove("red", "green");
-            const span = cell.querySelector("span");
-            span.textContent = "1";
-        }
-    });
+    // Colorăm până la pasul curent păstrând starea anterioară
+    for (let s = 0; s < step; s++) {
+        applyStep(steps[s], false);
+    }
+}
 
-    // Colorare până la pasul curent
-    for(let idx = 0; idx < step; idx++) {
-        const p = steps[idx];
-        for(let i = 0; i <= N; i++) {
-            const cell = document.getElementById(`p${p}-cell-${i}`);
-            if (!cell) continue;
-            const span = cell.querySelector("span");
-            if(i % p === 0 && i !== p) {
+function applyStep(p, animate = true) {
+    let i = p * 2;
+    let delay = 0;
+
+    function markNext() {
+        if (i > N) return;
+
+        marked[i] = false;
+        steps.forEach(prime => {
+            const cell = document.getElementById(`p${prime}-cell-${i}`);
+            if (cell) {
+                const span = cell.querySelector("span");
                 cell.classList.add("red");
                 span.textContent = "0";
-            } else {
+            }
+        });
+
+        i += p;
+        setTimeout(markNext, 100);
+    }
+
+    if (animate) {
+        markNext();
+    } else {
+        for (let i = p * 2; i <= N; i += p) {
+            marked[i] = false;
+            steps.forEach(prime => {
+                const cell = document.getElementById(`p${prime}-cell-${i}`);
+                if (cell) {
+                    const span = cell.querySelector("span");
+                    cell.classList.add("red");
+                    span.textContent = "0";
+                }
+            });
+        }
+    }
+}
+
+function highlightRemainingPrimes() {
+    for (let i = 2; i <= N; i++) {
+        if (!marked[i]) continue;
+        steps.forEach(p => {
+            const cell = document.getElementById(`p${p}-cell-${i}`);
+            if (cell) {
+                const span = cell.querySelector("span");
+                cell.classList.remove("red");
                 cell.classList.add("green");
                 span.textContent = "1";
             }
-        }
+        });
     }
 }
 
 function nextStep() {
     if (currentStep < steps.length) {
+        const p = steps[currentStep];
         currentStep++;
-        colorStepsUpTo(currentStep);
+        applyStep(p, true);
         updateButtons();
+
+        if (currentStep === steps.length) {
+            setTimeout(highlightRemainingPrimes, (N / steps[currentStep - 1]) * 120);
+        }
     }
 }
 
 function prevStep() {
     if (currentStep > 0) {
+        // Resetăm tot și reconstruim până la currentStep-1
+        marked = Array(N + 1).fill(true);
+        marked[0] = marked[1] = false;
+        steps.forEach(p => {
+            for (let i = 0; i <= N; i++) {
+                const cell = document.getElementById(`p${p}-cell-${i}`);
+                if (cell) {
+                    cell.classList.remove("red", "green");
+                    const span = cell.querySelector("span");
+                    span.textContent = "1";
+                }
+            }
+        });
+
         currentStep--;
         colorStepsUpTo(currentStep);
         updateButtons();
@@ -371,9 +629,50 @@ function updateButtons() {
     document.getElementById("btnNext").disabled = currentStep === steps.length;
 }
 
-// Re-generează când se schimbă N
 document.getElementById("NInput").addEventListener('change', () => {
     generateSteps();
 });
 
 generateSteps();
+
+
+
+
+
+
+
+
+
+
+
+
+var codeContent=document.getElementById("codeContent");
+var codeFullscreenBtn=document.getElementById("codeFullscreenBtn");
+
+function codeFullscreen()
+{
+  if (document.fullscreenElement) 
+    {
+        document.exitFullscreen();
+    }
+    else 
+    {
+        codeContent.requestFullscreen();
+    }
+}
+
+
+var grafContent=document.getElementById("grafContent");
+var grafFullscreenBtn=document.getElementById("grafFullscreenBtn");
+
+function grafFullscreen()
+{
+  if (document.fullscreenElement) 
+    {
+        document.exitFullscreen();
+    }
+    else 
+    {
+        grafContent.requestFullscreen();
+    }
+}
