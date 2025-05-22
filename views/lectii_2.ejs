@@ -13,11 +13,219 @@
     </header>
 
     <main>
-        <h1>Lecția 2</h1>
+        <h1>Metode de căutare</h1>
+        <h2 id="subTitle">Căutarea liniară și binară</h2>
+
+        <div class="teory">
+            <div class="teoryMenu">
+                <h2 id="teoryTitle">Card 1</h2>
+                <h2 id="teorySubtitle">Începutul</h2>
+                <div class="teoryMenuButtons">
+                    <button onclick="previousTeory()" id="previousButton">Precedentul</button>
+                    <button onclick="nextTeory()" id="nextButton">Următorul</button>
+                </div>
+            </div>
+            <div id="teoryCard">
+                <h2 id="teoryText">Căutarea <code>liniară</code> și cea <code>binară</code> sunt două metode de căutare folosite pentru a găsi un element într-o listă. Căutarea <code>iniară</code> verifică fiecare element pe rând, iar cea <code>binară</code> împarte lista sortată pentru a găsi rapid valoarea dorită.</h2>
+            </div>
+        </div>
+        
+        <div id="cardsTitle">
+            <h3>Încearcă pentru <code>vector = &nbsp;</code></h3>
+            <input id="vectorInput" type="text"  placeholder="1 2 3 4" value="10 22 34 56 78 99 111">
+            <h3>&nbsp; și&nbsp;<code>deCăutat = &nbsp;</code></h3>
+            <input id="deCautatInput" type="number"  placeholder="99" value="99">
+        </div>
+
+        <div class="container">
+
+            <div class="card">
+                <h2>Căutarea liniară</h2>
+                <div class="cardContent">
+                    <textarea class="code" spellcheck="false" readonly>
+#include <iostream>
+using namespace std;
+
+int vector[1001];
+
+int main()
+{
+    int nrElemente;
+    cin>>nrElemente;
+
+    for(int i=0;i<nrElemente;i++)
+    {
+        cin>>vector[i];
+    }
+
+    int deCautat;
+    cin>>deCautat;
+    int status = 0;//0-Negăsit  1-Găsit
+
+    for(int i=0;(i<nrElemente) && (status==0);i++)
+    {
+        if(vector[i]==deCautat)
+        {
+            cout<<"--->Am găsit valoarea "<<deCautat<<" la indexul "<<i<<".";
+            status=1;
+        }
+    }
+
+    if(status==0)
+    {
+        cout<<"--->Valoarea "<<deCautat<<" nu a fost găsită în vector.";
+    }
+
+    return 0;
+
+}
+                    </textarea>
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card apare căutarea liniară in limbajul c++.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardFooterRight">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="card">
+                <h2>Animație</h2>
+                <div class="cardContent">
+
+                    <div id="animationContainer" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; align-items: center; height: 100%; padding: 20px;"></div>
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card apare animația căutării liniare.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardFooterRight">
+                        <button onclick="startAnimation()" id="startBtn" style="font-size: 16px; padding: 8px 16px; border-radius: 10px; border: none; background-color: #1864ab; color: white; cursor: pointer;">Pornește Căutarea</button>
+                        <div id="searchResult" style="font-size: 18px; font-weight: bold; color: #1864ab;"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="card">
+                <h2>Căutarea binară</h2>
+                <div class="cardContent">
+                    <textarea class="code" spellcheck="false" readonly>
+#include <iostream>
+using namespace std;
+
+int vector[1001];
+
+
+int main() 
+{
+    int nrElemente;
+    cin>>nrElemente;
+    for(int i=0;i<nrElemente;i++)
+    {
+        cin>>vector[i];
+    }
+
+    int deCautat;
+    cin >> deCautat;
+    int l = 0, r = 8, ok = 0;
+
+    while ((l <= r) && (ok == 0)) 
+    {
+        int m = (l + r) / 2;
+        if (deCautat > vector[m]) 
+        {
+            l = m + 1;
+        } 
+        else if (deCautat < vector[m]) 
+        {
+            r = m - 1;
+        } else 
+        {
+            cout << "--->Am găsit valoarea "<<deCautat<<" la indexul "<<m<<".";
+            ok = 1;
+        }
+    }
+
+    if (ok == 0) 
+    {
+        cout << "--->Valoarea "<<deCautat<<" nu a fost găsită în vector.";
+    }
+
+    return 0;
+}
+
+                    </textarea>
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card apare căutarea binară in limbajul c++.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardFooterRight">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+           <div class="card">
+                <h2>Animație</h2>
+                <div class="cardContent">
+                    <div id="binaryContainer" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; align-items: center; height: 100%; padding: 20px;"></div>
+                </div>
+                <div class="cardFooter">
+                    <div class="cardFooterLeft">
+                        <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card apare animația căutării binare, utilizând un vector sortat pentru demonstrație vizuală.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardFooterRight">
+                        <button onclick="startBinarySearch()" id="startBinaryBtn" style="font-size: 16px; padding: 8px 16px; border-radius: 10px; border: none; background-color: #1864ab; color: white; cursor: pointer;">Pornește Căutarea</button>
+                        <div id="binarySearchResult" style="font-size: 18px; font-weight: bold; color: #1864ab;"></div>
+                    </div>
+                </div>
+        </div>
+
+
+        </div>
+
+
     </main>
 
     <footer>
         <%- include('./partials/footer.ejs') %>
     </footer>
+
+    <script src="/js/lectia_2.js"></script>
 </body>
 </html>

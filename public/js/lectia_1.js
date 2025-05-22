@@ -90,7 +90,6 @@ int main()
             code.textContent=
 `#include  
 using namespace std;
-                <h2 id="codeh2">Code</h2>
 
 int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion 
 
@@ -688,48 +687,46 @@ generateSteps();
 
 
 
+function codeFullscreen(event) {
+    const target = event.target;
+    const card = target.closest('.card');
+    const cardContent = card.querySelector('.cardContent');
 
-var codeContent=document.getElementById("codeContent");
+    // Adaugăm o clasă pentru stiluri specifice fullscreen
+    cardContent.classList.add('fullscreen-mode');
 
+    // Dacă există butoane de rulare în cardFooterRight, le mutăm temporar într-un container care va fi vizibil în fullscreen
+    const footerRight = card.querySelector('.cardFooterRight');
+    let fullscreenControls;
 
-function codeFullscreen()
-{
-  if (document.fullscreenElement) 
-    {
-        document.exitFullscreen();
+    if (footerRight && footerRight.children.length > 0) {
+        fullscreenControls = footerRight.cloneNode(true);
+        fullscreenControls.classList.add('fullscreen-controls');
+        cardContent.appendChild(fullscreenControls);
     }
-    else 
-    {
-        codeContent.requestFullscreen();
-    }
-}
 
+    const exitHandler = () => {
+        cardContent.classList.remove('fullscreen-mode');
+        const extraControls = cardContent.querySelector('.fullscreen-controls');
+        if (extraControls) extraControls.remove();
+        document.removeEventListener('fullscreenchange', exitHandler);
+    };
 
-var grafContent=document.getElementById("grafContent");
+    document.addEventListener('fullscreenchange', exitHandler);
 
-
-function grafFullscreen()
-{
-  if (document.fullscreenElement) 
-    {
-        document.exitFullscreen();
-    }
-    else 
-    {
-        grafContent.requestFullscreen();
-    }
-}
-
-var animContent=document.getElementById("animContent");
-
-function animFullscreen()
-{
-  if (document.fullscreenElement) 
-    {
-        document.exitFullscreen();
-    }
-    else 
-    {
-        animContent.requestFullscreen();
+    if (cardContent.requestFullscreen) {
+        cardContent.requestFullscreen();
+    } else if (cardContent.webkitRequestFullscreen) {
+        cardContent.webkitRequestFullscreen();
+    } else if (cardContent.msRequestFullscreen) {
+        cardContent.msRequestFullscreen();
     }
 }
+
+// Atașează evenimentul la toate iconițele expand
+document.addEventListener('DOMContentLoaded', () => {
+    const expandIcons = document.querySelectorAll('.expandIco');
+    expandIcons.forEach(icon => {
+        icon.addEventListener('click', codeFullscreen);
+    });
+});

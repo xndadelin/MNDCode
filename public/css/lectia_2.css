@@ -5,11 +5,284 @@ main h1
     display: flex;
     justify-content: center;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 0;
 }
 
-.intro
+#subTitle
 {
     display: flex;
     justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 50px;
+}
+
+/**/
+
+.teory
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:20px
+}
+
+#teoryCard
+{
+    padding:10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 60%;
+    height:200px;
+    background-color: #d0ebff;
+    border: solid 3px #a5d8ff;
+    border-radius: 20px;
+    min-width: 600px;
+}
+
+.teoryMenu
+{
+    padding:10px;
+    padding-left: 20px;
+    min-width: 200px;
+    height: 200px;
+    background-color: #d0ebff;
+    border: solid 3px #a5d8ff;
+    border-radius: 20px;
+    width: 20%;
+}
+
+.teoryMenu h2 
+{
+    display: flex;
+    justify-content: center;
+}
+
+.teoryCard h2 
+{
+    font-size: 24px;
+}
+
+.teoryMenuButtons
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.teoryMenuButtons button
+{
+    width: 140px;
+    height: 50px;
+    color:white;
+    border:solid 3px #228be6;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;  
+    font-size: 16px;
+}
+
+#previousButton
+{
+    background-color: gray;
+}
+
+#nextButton
+{
+    background-color:#1864ab;
+}
+
+/**/
+
+#cardsTitle
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    align-items: center;
+    font-size: 20px;
+}
+#vectorInput
+{
+    height: 30px;
+    font-size: 17px;
+    padding: 0;
+    border: 3px #1864ab solid;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+}
+#deCautatInput
+{
+    width: 100px;
+    height: 30px;
+    border: 3px #1864ab solid;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+.container
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 110px;
+}
+
+.card
+{
+    display:grid;
+    row-gap: 15px;
+}
+
+.card h2
+{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:#0b7285;
+    margin: 0;
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardContent
+{
+    background-color:#d0ebff ;
+    width: 850px;
+    height: 600px;
+    border: solid 3px #a5d8ff;
+    border-radius: 20px;
+}
+
+.code
+{
+    border: none;
+    outline: none;
+    resize: none;
+    width: 808px;
+    height: 558px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: monospace;
+}
+
+
+
+
+
+.cardFooter
+{
+    background-color: #a5d8ff;
+    border-radius: 20px ;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.cardFooterLeft
+{
+    position: relative;
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+
+.cardFooterRight
+{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ico-container {
+    position: relative;
+    display: inline-block;
+}
+
+.details-box {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #1864ab;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 10;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.ico-container:hover .details-box 
+{
+    display: block;
+}
+
+
+.footerIco
+{
+    color: #1864ab;
+    font-size: 30px;
+    cursor: pointer;
+}
+.footerIco:hover
+{
+    color:#1864ab;
+}
+
+
+
+
+
+
+
+
+.vector-box {
+    width: 60px;
+    height: 60px;
+    background-color: #f1f3f5;
+    border: 3px solid #1864ab;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.5s, transform 0.3s;
+}
+.vector-box.active {
+    background-color: #ffd43b;
+    transform: scale(1.1);
+}
+.vector-box.found {
+    background-color: #51cf66 !important;
+}
+.vector-box.not-found {
+    background-color: #ff6b6b !important;
+}
+
+.vector-box.eliminated {
+    background-color: #ff4d4d;
+    color: white;
+    opacity: 0.6;
+}
+
+
+
+.cardContent:fullscreen textarea
+{
+    height: 100vh;
+    width: 100%;
 }
 

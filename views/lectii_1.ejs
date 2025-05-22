@@ -13,7 +13,7 @@
     </header>
 
     <main>
-        <h1>Lecția 1 <br> Ciurul lui Eratostene</h1>
+        <h1> Ciurul lui Eratostene</h1>
         <div class="teory">
             <div class="teoryMenu">
                 <h2 id="teoryTitle">Card 1</h2>
@@ -44,7 +44,12 @@
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
                         <a><i class="fa-solid fa-expand footerIco expandIco" onclick="codeFullscreen()"></i></a>
-                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card apare ciurul lui Eratostene (cpp) , optimizat în funcție de progresul făcut.
+                            </div>
+                        </div>
                     </div>
                     <div class="cardFooterRight">
 
@@ -63,7 +68,12 @@
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
                         <a><i class="fa-solid fa-expand footerIco expandIco" onclick="grafFullscreen()"></i></a>
-                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card se afișează cum testează ciurul lui Eratostene fiecare număr prim ,eliminândui multiplii, începănd cu 2.
+                            </div>
+                        </div>
                     </div>
                     <div class="cardFooterRight" id="GraficRight">
                             <button id="btnPrev" class="GraficBtn" onclick="prevStep()" disabled>Precedent</button>
@@ -82,7 +92,12 @@
                 <div class="cardFooter">
                     <div class="cardFooterLeft">
                         <a><i class="fa-solid fa-expand footerIco expandIco" onclick="animFullscreen()"></i></a>
-                        <a><i class="fa-solid fa-circle-info footerIco"></i></a>
+                        <div class="ico-container">
+                            <i class="fa-solid fa-circle-info footerIco"></i>
+                            <div class="details-box">
+                                În acest card se afișează rezultatul final în urma rulării ciurului lui Eratostene.
+                            </div>
+                        </div>
                     </div>
                     <div class="cardFooterRight">
                         <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
