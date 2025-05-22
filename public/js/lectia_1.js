@@ -21,7 +21,7 @@ function nextTeory()
             break;
 
         case "Card 2":
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=2*i;j<=N;j=j+1)<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";                                                                                                                                      
             teoryTitle.textContent="Card 3";
             teorySubtitle.textContent="Cod neoptimizat";
@@ -82,7 +82,7 @@ int main()
             break;
 
         case "Card 5":
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
             teoryTitle.textContent="Card 6";
             teorySubtitle.textContent="Cod semi-optimizat";
@@ -143,7 +143,7 @@ int main()
 
         case "Card 8":
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i*i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=i*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryTitle.textContent="Card 9";
             teorySubtitle.textContent="Cod optimizat";
             codeh2.textContent="Optimizare 3"
@@ -207,7 +207,7 @@ function previousTeory()
     switch (teoryTitle.textContent)
     {
         case "Card 10":
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i*i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=i*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
             teoryTitle.textContent="Card 9";
             teorySubtitle.textContent="Cod optimizat";
@@ -229,7 +229,7 @@ function previousTeory()
             break;
 
         case "Card 7":
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=3*i;j<=N;j=j+2*i) //Pasul va fi dublul lui i<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";
             teoryTitle.textContent="Card 6";
             teorySubtitle.textContent="Cod semi-optimizat";
@@ -291,7 +291,7 @@ int main()
             break;
 
         case "Card 4":  
-            teoryCard.style.height = "1070px";
+            teoryCard.style.height = "1280px";
             teoryText.innerHTML="<pre><code>#include <iostream> <br>using namespace std;<br><br>int ciur[1000003],N // Determinăm numerele prime mai mici decât un milion <br><br>int main()<br>{<br>   int i,j;<br>   cin>>N;<br>   ciur[0]=ciur[1]=1;<br><br>   //Marcăm cu 1 (nu sunt prime) toate numerele pare >= 4<br>   for(i=4;i<=N;i=i+2)<br>   {<br>      ciur[i] = 1;<br>   }<br><br>   //Parcurgem numerele impare >=3<br>   for(i=3;i<=N;i=i+2)<br>   {<br>      if(ciur[i]==0) //i este prim,dar multiplii săi nu<br>      {<br>         for(j=2*i;j<=N;j=j+1)<br>         {<br>            ciur[j] = 1;<br>         }<br>      }<br>   }<br><br>   for(i=0;i<=N;i++)<br>   {<br>      if(ciur[i]==0)<br>      {<br>         cout&lt;&lt;i&lt;&lt;' ';<br>      }<br>   }<br>   return 0;<br>}</code></pre>";                                                                                                                                      
             teoryTitle.textContent="Card 3";
             teorySubtitle.textContent="Cod neoptimizat";
