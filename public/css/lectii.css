@@ -1,18 +1,16 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f9ff;
-}
 
-.lesson-container {
+main
+{
   display: flex;
-  justify-content: center;
   gap: 2rem;
   padding: 3rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-.lesson-card {
+.lessonCard 
+{
+  border: solid 3px #a5d8ff;
   background-color: #d0e8ff;
   width: 280px;
   padding: 2rem;
@@ -22,24 +20,28 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.lesson-card:hover {
+.lessonCard:hover 
+{
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-.lesson-card h2 {
+.lessonCard h2 
+{
   margin: 0 0 1rem;
   color: #003366;
-  font-size: 1.5rem;
+  font-size: 25px;
 }
 
-.lesson-card p {
+.lessonCard p 
+{
   margin-bottom: 1.5rem;
   color: #333;
   font-size: 1rem;
 }
 
-.lesson-card button {
+.lessonCard button 
+{
   background-color: #004aad;
   color: white;
   border: none;
@@ -50,11 +52,12 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.lesson-card button:hover {
+.lessonCard button:hover 
+{
   background-color: #003a8c;
 }
 
 a
 {
-    text-decoration: none;
+  text-decoration: none;
 }
