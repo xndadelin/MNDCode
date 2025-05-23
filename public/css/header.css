@@ -1,4 +1,8 @@
-
+header 
+{
+    width: 100%;
+    box-sizing: border-box;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -7,8 +11,10 @@
     padding: 10px 20px;
     color: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
-
 
 .navbar ul {
     list-style: none;
@@ -16,10 +22,12 @@
     padding: 0;
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .navbar ul li {
     position: relative;
+    margin: 0;
 }
 
 .navbar ul li a {
@@ -28,7 +36,7 @@
     padding: 8px 12px;
     border-radius: 5px;
     transition: background-color 0.3s;
-    font-size: 18px;
+    font-size: clamp(14px, 2.5vw, 18px);
 }
 
 .navbar ul li a:hover {
@@ -41,8 +49,10 @@
     background-color: #0077b6;
     min-width: 150px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 1000;
     border-radius: 5px;
+    top: 100%;
+    left: 0;
 }
 
 .dropdown-content a {
@@ -50,6 +60,7 @@
     padding: 10px;
     text-decoration: none;
     display: block;
+    font-size: clamp(12px, 2vw, 16px);
 }
 
 .dropdown-content a:hover {
@@ -64,6 +75,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .account img {
@@ -73,21 +85,177 @@
     border: 2px solid white;
 }
 
-.account a
-{
+.account a {
     text-decoration: none;
     color: white;
     padding: 8px 12px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    font-size: clamp(14px, 2.5vw, 18px);
 }
 
-.account a:hover 
-{
+.account a:hover {
     background-color: #0096c7;
 }
-.logo
-{
-    width: 160px;
+
+.logo {
+    width: clamp(120px, 20vw, 160px);
     border-radius: 20px;
+    height: auto;
+    max-width: 100%;
+}
+
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .navbar ul {
+        gap: 15px;
+    }
+    
+    .logo {
+        width: clamp(100px, 18vw, 140px);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        gap: 15px;
+        position: relative;
+    }
+    
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 5px;
+    }
+    
+    .navbar ul li {
+        width: 100%;
+    }
+    
+    .navbar ul li a {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        font-size: 20px;
+    }
+    
+    .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: #0077b6;
+        width: 100%;
+        border-radius: 0;
+        margin-top: 5px;
+    }
+    
+    .navbar ul li:hover .dropdown-content {
+        display: block;
+    }
+    
+    .account {
+        justify-content: center;
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .account img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .logo {
+        width: clamp(100px, 25vw, 140px);
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 5px;
+        gap: 10px;
+    }
+    
+    .navbar ul {
+        gap: 2px;
+    }
+    
+    .navbar ul li a {
+        padding: 10px;
+        font-size: 19px;
+    }
+    
+    .dropdown-content a {
+        padding: 8px;
+        font-size: 19px;
+    }
+    
+    .account {
+        gap: 10px;
+        flex-direction: column;
+    }
+    
+    .account img {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .account a {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+    
+    .logo {
+        margin-left: 23px;
+        width: clamp(80px, 30vw, 120px);
+    }
+}
+
+
+@media (hover: none) and (pointer: coarse) {
+    .navbar ul li a,
+    .account a {
+        padding: 12px 16px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .dropdown-content a {
+        padding: 12px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+@media (orientation: landscape) and (max-height: 768px) {
+    .navbar {
+        padding: 8px 15px;
+        gap: 10px;
+    }
+    
+    .logo {
+        width: clamp(80px, 15vw, 120px);
+    }
 }

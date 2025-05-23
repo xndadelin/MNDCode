@@ -18,6 +18,11 @@ app.get('/compiler',(req,res)=>
     res.render('compiler',{title:"Compiler"});
 });
 
+app.get('/aprofundare',(req,res)=>
+{
+    res.render('aprofundare',{title:"Aprofundare"});
+});
+
 app.get('/lectii',(req,res)=>
 {
     res.render('lectii',{title:"Lectii"});
