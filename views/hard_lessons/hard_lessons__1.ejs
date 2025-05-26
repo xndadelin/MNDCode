@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/lectia_1.css">
+    <%- include('./../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/hard_lessons/hard_lessons__1.css">
     <style>
 
     </style>
 </head>
 <body>
     <header>
-        <%- include('./partials/header.ejs') %>
+        <%- include('./../partials/header.ejs') %>
     </header>
 
     <main>
-        <h1> Ciurul lui Eratostene</h1>
+        <h1> The Sieve of Eratosthenes</h1>
         <div class="teory">
             <div class="teoryMenu">
                 <h2 id="teoryTitle">Card 1</h2>
-                <h2 id="teorySubtitle">Începutul</h2>
+                <h2 id="teorySubtitle">The Beginning</h2>
                 <div class="teoryMenuButtons">
-                    <button onclick="previousTeory()" id="previousButton">Precedentul</button>
-                    <button onclick="nextTeory()" id="nextButton">Următorul</button>
+                    <button onclick="previousTeory()" id="previousButton">Previous</button>
+                    <button onclick="nextTeory()" id="nextButton">Next</button>
                 </div>
             </div>
             <div id="teoryCard">
-                <h2 id="teoryText">Se utilizează pentru a determină toate numerele <code>prime</code> mai mici sau egale cu <code>N</code>. Prin definiție un număr <code>x</code> este <code>prim</code> dacă și numai dacă are doar doi divizori. Numărul 2 este primul număr prim, și este <code>singurul</code> număr par prim.</h2>
+                <h2 id="teoryText">It is used to determine all <code>prime</code> numbers less than or equal to <code>N</code>. By definition, a number <code>x</code> is <code>prime</code> if and only if it has exactly two divisors. The number 2 is the first prime number and is the <code>only</code> even prime number.</h2>
             </div>
         </div>
 
         <div id="cardsTitle">
-            <h3>Încearcă pentru N=</h3>
+            <h3>Try for N=</h3>
             <input id="NInput" type="number" max="100" min="0" placeholder="N:2-150" value="150">
         </div>
 
@@ -38,7 +38,7 @@
                 <h2 id="codeh2">Code</h2>
                 <div class="cardContent" id="codeContent">
                     <textarea id="code" spellcheck="false" readonly>
-        Codul va apărea aici pe parcurs ce progresezi.
+        The code will appear here as you progress.
                     </textarea>
                 </div>
                 <div class="cardFooter">
@@ -47,7 +47,7 @@
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card apare ciurul lui Eratostene (cpp) , optimizat în funcție de progresul făcut.
+                                This card features the Sieve of Eratosthenes (C++), optimized based on the progress made.
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
 
             <div class="card">
-                <h2>Vizualizare grafică</h2>
+                <h2>Graphical view</h2>
                 <div class="cardContent" id="grafContent">
                     <div class="stepsContainer" id="stepsContainer">
                         
@@ -71,7 +71,7 @@
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card se afișează cum testează ciurul lui Eratostene fiecare număr prim ,eliminândui multiplii, începănd cu 2.
+                                This card shows how the Sieve of Eratosthenes processes each prime number by removing its multiples, starting from 2.
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="card">
-                <h2>Vizualizarea numerelor prime</h2>
+                <h2>Viewing prime numbers</h2>
                 <div class="cardContent" id="animContent">
                     <div id="grid">
                         
@@ -95,12 +95,12 @@
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card se afișează rezultatul final în urma rulării ciurului lui Eratostene.
+                                This card shows the final output of the Sieve of Eratosthenes.
                             </div>
                         </div>
                     </div>
                     <div class="cardFooterRight">
-                        <button id="runBtn" onclick="RunButtonPressed()">Rulează</button>
+                        <button id="runBtn" onclick="RunButtonPressed()">Run</button>
                     </div>
                 </div>
             </div>
@@ -108,9 +108,9 @@
     </main>
 
     <footer>
-        <%- include('./partials/footer.ejs') %>
+        <%- include('./../partials/footer.ejs') %>
     </footer>
 
-    <script src="/js/lectia_1.js"></script>
+    <script src="/js/hard_lessons/hard_lessons__1.js"></script>
 </body>
 </html>

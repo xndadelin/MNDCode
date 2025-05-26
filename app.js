@@ -10,40 +10,35 @@ app.use(express.static('public'));
 
 app.get('/',(req,res)=>
 {
-    res.render('home',{title:"AlgoGim"});
+    res.render('routes/home',{title:"MNDCode"});
 });
 
 app.get('/compiler',(req,res)=>
 {
-    res.render('compiler',{title:"Compiler"});
+    res.render('routes/compiler',{title:"Compiler"});
 });
 
-app.get('/aprofundare',(req,res)=>
-{
-    res.render('aprofundare',{title:"Aprofundare"});
+app.get('/hard_lessons', (req, res) => {
+    res.render('hard_lessons/hard_lessons', { title: "Hard Lessons" });
 });
 
-app.get('/lectii',(req,res)=>
+
+app.get('/hard_lessons/1',(req,res)=>
 {
-    res.render('lectii',{title:"Lectii"});
+    res.render('hard_lessons/hard_lessons__1',{title:"Hard Lesson 1"});
 });
 
-app.get('/lectii/1',(req,res)=>
+app.get('/hard_lessons/2',(req,res)=>
 {
-    res.render('lectii_1',{title:"Lectia 1"});
+    res.render('hard_lessons/hard_lessons__2',{title:"Hard Lesson 2"});
 });
 
-app.get('/lectii/2',(req,res)=>
+app.get('/hard_lessons/3',(req,res)=>
 {
-    res.render('lectii_2',{title:"Lectia 2"});
-});
-
-app.get('/lectii/3',(req,res)=>
-{
-    res.render('lectii_3',{title:"Lectia 3"});
+    res.render('hard_lessons/hard_lessons__3',{title:"Hard Lesson 3"});
 });
 
 app.use((req,res)=>
 {
-    res.status(404).render('404',{title:"404"});
+    res.status(404).render('routes/404',{title:"404"});
 });

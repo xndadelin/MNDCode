@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include('./partials/head.ejs') %>
+        <%- include('./../partials/head.ejs') %>
     </head>
     <body>
         <header>
-            <%- include('./partials/header.ejs') %>
-            <link href="/css/lectii.css" rel="stylesheet">
+            <%- include('./../partials/header.ejs') %>
+            <link href="/css/hard_lessons/hard_lessons.css" rel="stylesheet">
         </header>
 
         <main>
-        <a href="/lectii/1">
+        <a href="/hard_lessons/1" title="Lecția 1: Ciurul lui Eratostene">
             <div class="lessonCard">
                 <h2>Lecția 1</h2>
                 <p>Ciurul lui Eratostene</p>
@@ -18,7 +18,7 @@
             </div>
         </a>
 
-        <a href="/lectii/2">
+        <a href="/hard_lessons/2" title="Lecția 2: Căutarea liniară și binară">
             <div class="lessonCard">
                 <h2>Lecția 2</h2>
                 <p>Căutarea liniară și binară</p>
@@ -26,7 +26,7 @@
             </div>
         </a>  
 
-        <a>
+        <a href="/hard_lessons/3">
             <div class="lessonCard">
                 <h2>Lecția 3</h2>
                 <p>Descriere lecția 3</p>
@@ -109,7 +109,7 @@
         </main>
 
         <footer>
-            <%- include('./partials/footer.ejs') %>
+            <%- include('./../partials/footer.ejs') %>
         </footer>
     </body>
 </html>

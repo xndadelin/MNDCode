@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+@font-face 
+{
+    font-family: "Oswald";
+    src: url(/fonts/Oswald-VariableFont_wght.ttf);
+}
+@font-face 
+{
+    font-family: "idk";
+    src: url(/fonts/idk.ttf);
+}
+
+html, body 
+{
+  overflow-x: hidden;
+}
 
 body 
 {

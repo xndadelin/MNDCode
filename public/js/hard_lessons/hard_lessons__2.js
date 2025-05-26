@@ -9,30 +9,30 @@ function nextTeory()
     switch (teoryTitle.textContent)
     {
         case "Card 1":
-            teoryTitle.textContent="Card 2";
-            teoryText.innerHTML="Căutarea <code>liniară (secvențială)</code> este unul dintre cei mai simpli algoritmi studiați. El urmărește să verificea partenența unui element la un șir de elemente de aceeași natură, în speță a unui număr la un șir denumere. Pentru aceasta se parcurge șirul de la <code>primul</code> element până la <code>ultimul</code> și la fiecare pas se compară elementul căutat <code>x</code> cu elementul curent din șir. În cazul în care s-a găsit corespondență(egalitate), un indicator (<code>găsit</code>) este modificat în 1.La sfârșitul parcurgerii șirului, indicatorul ne va arăta dacă <code>numărul</code> căutat aparține sau nușirului.";
-            teorySubtitle.textContent="Căutarea liniară";
-            previousButton.style.backgroundColor ='#1864ab';
+            teoryTitle.textContent = "Card 2";
+            teoryText.innerHTML = "The <code>linear (sequential)</code> search is one of the simplest algorithms studied. It aims to check whether an element belongs to a sequence of elements of the same nature, specifically a number in a sequence of numbers. For this, the sequence is traversed from the <code>first</code> element to the <code>last</code>, and at each step, the searched element <code>x</code> is compared with the current element in the sequence. If a match (equality) is found, an indicator (<code>found</code>) is set to 1. At the end of the traversal, the indicator will show us whether the <code>number</code> being searched for belongs to the sequence or not.";
+            teorySubtitle.textContent = "Linear Search";
+            previousButton.style.backgroundColor = '#1864ab';
             previousButton.style.cursor = 'pointer';
             break;
 
         case "Card 2":
-            teoryTitle.textContent="Card 3";
-            teoryText.innerHTML="Algoritmul de <code>căutare binară</code> oferă performanțe mai bune decât algoritmul de <code>căutare secvențială</code>.Căutarea binară funcționează prin împărțirea repetată a unei liste <code>sortate</code> în jumătate, comparând elementul căutat cu valoarea de la mijloc pentru a decide în ce jumătate să continue căutarea. Unul din <code>dezavantajele</code> acestui algoritm este că șirul în care se face căutarea trebuie să fie inițial <code>sortat</code>.";
-            teorySubtitle.textContent="Căutarea binară";
+            teoryTitle.textContent = "Card 3";
+            teoryText.innerHTML = "The <code>binary search</code> algorithm offers better performance than the <code>sequential search</code> algorithm. Binary search works by repeatedly dividing a <code>sorted</code> list in half, comparing the target element with the middle value to decide in which half to continue the search. One of the <code>disadvantages</code> of this algorithm is that the list to be searched must be initially <code>sorted</code>.";
+            teorySubtitle.textContent = "Binary Search";
             break;
 
         case "Card 3":
-            teoryTitle.textContent="Card 4";
-            teoryText.innerHTML="  - Datele de intrare trebuie <code>ordonate</code> în cazul aplicării metodei <code>căutării binare</code> și nu trebuie ordonate dacă aplicăm <code>căutarea liniară</code>.<br>  - Căutarea liniară face accesul secvențial(o căutare liniară scanează un element la un moment dat, fără a sări la niciun element, în timp ce datele de acces la <code>căutare binară</code> sunt aleatorii(în cazul algoritmului de căutare binară, se reduce căutarea la jumătate,imediat după ce găsim <code>mijlocul</code> șirului sortat.";
-            teorySubtitle.textContent="Observații";
+            teoryTitle.textContent = "Card 4";
+            teoryText.innerHTML = "  - Input data must be <code>sorted</code> when using the <code>binary search</code> method and do not need to be sorted when applying <code>linear search</code>.<br>  - Linear search accesses data sequentially (a linear search scans one element at a time without skipping any), while data access in <code>binary search</code> is random (in binary search, the search range is halved immediately after finding the <code>middle</code> of the sorted list).";
+            teorySubtitle.textContent = "Observations";
             break;
 
         case "Card 4":
-            teoryTitle.textContent="Card 5";
-            teoryText.innerHTML="- Complexitatea căutării liniare este <code>O(n)</code>.<br> - Complexitatea căutării binare este <code>O(log n)</code>.";
-            teorySubtitle.textContent="Complexitatea";
-            nextButton.style.backgroundColor ='gray';
+            teoryTitle.textContent = "Card 5";
+            teoryText.innerHTML = "- The time complexity of linear search is <code>O(n)</code>.<br> - The time complexity of binary search is <code>O(log n)</code>.";
+            teorySubtitle.textContent = "Complexity";
+            nextButton.style.backgroundColor = 'gray';
             nextButton.style.cursor = 'not-allowed';
             break;
     }
@@ -43,33 +43,34 @@ function previousTeory()
     switch (teoryTitle.textContent)
     {
         case "Card 2":
-            teoryTitle.textContent="Card 1";
-            teoryText.innerHTML="Căutarea <code>liniară</code> și cea <code>binară</code> sunt două metode de căutare folosite pentru a găsi un element într-o listă. Căutarea <code>iniară</code> verifică fiecare element pe rând, iar cea <code>binară</code> împarte lista sortată pentru a găsi rapid valoarea dorită.";
-            teorySubtitle.textContent="Începutul";
-            previousButton.style.backgroundColor ='gray';
+            teoryTitle.textContent = "Card 1";
+            teoryText.innerHTML = "<code>Linear</code> and <code>binary</code> search are two methods used to find an element in a list. <code>Linear</code> search checks each element one by one, while <code>binary</code> search splits the sorted list to quickly find the desired value.";
+            teorySubtitle.textContent = "The beginning";
+            previousButton.style.backgroundColor = 'gray';
             previousButton.style.cursor = 'not-allowed';
             break;
 
         case "Card 3":
-            teoryTitle.textContent="Card 2";
-            teoryText.innerHTML="Căutarea <code>liniară (secvențială)</code> este unul dintre cei mai simpli algoritmi studiați. El urmărește să verificea partenența unui element la un șir de elemente de aceeași natură, în speță a unui număr la un șir denumere. Pentru aceasta se parcurge șirul de la <code>primul</code> element până la <code>ultimul</code> și la fiecare pas se compară elementul căutat <code>x</code> cu elementul curent din șir. În cazul în care s-a găsit corespondență(egalitate), un indicator (<code>găsit</code>) este modificat în 1.La sfârșitul parcurgerii șirului, indicatorul ne va arăta dacă <code>numărul</code> căutat aparține sau nușirului.";
-            teorySubtitle.textContent="Căutarea liniară";
+            teoryTitle.textContent = "Card 2";
+            teoryText.innerHTML = "The <code>linear (sequential)</code> search is one of the simplest algorithms studied. It aims to check whether an element belongs to a sequence of elements of the same nature, specifically a number in a sequence of numbers. For this, the sequence is traversed from the <code>first</code> element to the <code>last</code>, and at each step, the searched element <code>x</code> is compared with the current element in the sequence. If a match (equality) is found, an indicator (<code>found</code>) is set to 1. At the end of the traversal, the indicator will show us whether the <code>number</code> being searched for belongs to the sequence or not.";
+            teorySubtitle.textContent = "Linear Search";
             break;
 
         case "Card 4":
-            teoryTitle.textContent="Card 3";
-            teoryText.innerHTML="Algoritmul de <code>căutare binară</code> oferă performanțe mai bune decât algoritmul de <code>căutare secvențială</code>.Căutarea binară funcționează prin împărțirea repetată a unei liste <code>sortate</code> în jumătate, comparând elementul căutat cu valoarea de la mijloc pentru a decide în ce jumătate să continue căutarea. Unul din <code>dezavantajele</code> acestui algoritm este că șirul în care se face căutarea trebuie să fie inițial <code>sortat</code>.";
-            teorySubtitle.textContent="Căutarea binară";
+            teoryTitle.textContent = "Card 3";
+            teoryText.innerHTML = "The <code>binary search</code> algorithm offers better performance than the <code>sequential search</code> algorithm. Binary search works by repeatedly dividing a <code>sorted</code> list in half, comparing the target element with the middle value to decide in which half to continue the search. One of the <code>disadvantages</code> of this algorithm is that the list to be searched must be initially <code>sorted</code>.";
+            teorySubtitle.textContent = "Binary Search";
             break;
 
         case "Card 5":
-            teoryTitle.textContent="Card 4";
-            teoryText.innerHTML="  - Datele de intrare trebuie <code>ordonate</code> în cazul aplicării metodei <code>căutării binare</code> și nu trebuie ordonate dacă aplicăm <code>căutarea liniară</code>.<br>  - Căutarea liniară face accesul secvențial(o căutare liniară scanează un element la un moment dat, fără a sări la niciun element, în timp ce datele de acces la <code>căutare binară</code> sunt aleatorii(în cazul algoritmului de căutare binară, se reduce căutarea la jumătate,imediat după ce găsim <code>mijlocul</code> șirului sortat.";
-            teorySubtitle.textContent="Observații";
-            nextButton.style.backgroundColor ='#1864ab';
+            teoryTitle.textContent = "Card 4";
+            teoryText.innerHTML = "  - Input data must be <code>sorted</code> when using the <code>binary search</code> method and do not need to be sorted when applying <code>linear search</code>.<br>  - Linear search accesses data sequentially (a linear search scans one element at a time without skipping any), while data access in <code>binary search</code> is random (in binary search, the search range is halved immediately after finding the <code>middle</code> of the sorted list).";
+            teorySubtitle.textContent = "Observations";
+            nextButton.style.backgroundColor = '#1864ab';
             nextButton.style.cursor = 'pointer';
     }
 }
+
 
 
 
@@ -119,7 +120,7 @@ async function startAnimation() {
             box.classList.remove('active');
             box.classList.add('found');
             found = true;
-            resultBox.textContent = `---> Am găsit valoarea ${target} la indexul ${i}.`;
+            resultBox.textContent = `---> I found the value ${target} at ${i} index.`;
             break;
         } else {
             box.classList.remove('active');
@@ -128,7 +129,7 @@ async function startAnimation() {
     }
 
     if (!found) {
-        resultBox.textContent = `---> Valoarea ${target} nu a fost găsită în vector.`;
+        resultBox.textContent = `---> The value ${deCautat} was not found in the vector.`;
     }
 
     animationInProgress = false;
@@ -197,7 +198,7 @@ async function startBinarySearch() {
     resultDiv.innerText = '';
 
     if (inputVector.some(isNaN) || isNaN(deCautat)) {
-        resultDiv.innerText = 'Vectorul sau valoarea căutată nu sunt valide.';
+        resultDiv.innerText = 'The vector or value searched for is not valid.';
         startBtn.disabled = false;
         startBtn.style.opacity = '1';
         startBtn.style.cursor = 'pointer';
@@ -226,7 +227,7 @@ async function startBinarySearch() {
         if (vector[mid] === deCautat) {
             boxes[mid].classList.remove('active');
             boxes[mid].classList.add('found');
-            resultDiv.innerText = `---> Am găsit ${deCautat} la indexul ${mid}.`;
+            resultDiv.innerText = `---> I found the value ${deCautat} at ${mid} index.`;
             break;
         } else {
             boxes[mid].classList.remove('active');
@@ -244,7 +245,7 @@ async function startBinarySearch() {
     }
 
     if (st > dr) {
-        resultDiv.innerText = `---> Elementul ${deCautat} nu a fost găsit în vector.`;
+        resultDiv.innerText = `---> The value ${deCautat} was not found in the vector.`;
     }
 
 

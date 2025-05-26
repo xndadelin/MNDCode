@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('./partials/head.ejs') %>
-    <link rel="stylesheet" href="/css/lectia_2.css">
+    <%- include('./../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/hard_lessons/hard_lessons__2.css">
     <style>
 
     </style>
 </head>
 <body>
     <header>
-        <%- include('./partials/header.ejs') %>
+        <%- include('./../partials/header.ejs') %>
     </header>
 
     <main>
-        <h1>Metode de căutare</h1>
-        <h2 id="subTitle">Căutarea liniară și binară</h2>
+        <h1>Search methods</h1>
+        <h2 id="subTitle">Linear and binary search</h2>
 
         <div class="teory">
             <div class="teoryMenu">
                 <h2 id="teoryTitle">Card 1</h2>
-                <h2 id="teorySubtitle">Începutul</h2>
+                <h2 id="teorySubtitle">The beginning</h2>
                 <div class="teoryMenuButtons">
-                    <button onclick="previousTeory()" id="previousButton">Precedentul</button>
-                    <button onclick="nextTeory()" id="nextButton">Următorul</button>
+                    <button onclick="previousTeory()" id="previousButton">Previous</button>
+                    <button onclick="nextTeory()" id="nextButton">Next</button>
                 </div>
             </div>
             <div id="teoryCard">
-                <h2 id="teoryText">Căutarea <code>liniară</code> și cea <code>binară</code> sunt două metode de căutare folosite pentru a găsi un element într-o listă. Căutarea <code>iniară</code> verifică fiecare element pe rând, iar cea <code>binară</code> împarte lista sortată pentru a găsi rapid valoarea dorită.</h2>
+                <h2 id="teoryText">Linear and binary search are two methods used to find an element in a list. The <code>linear</code> search checks each element one by one, while the <code>binary</code> search splits the sorted list to quickly find the desired value.</h2>
             </div>
         </div>
         
         <div id="cardsTitle">
-            <h3>Încearcă pentru <code>vector = &nbsp;</code></h3>
+            <h3>Try for <code>vector = &nbsp;</code></h3>
             <input id="vectorInput" type="text"  placeholder="1 2 3 4 5 6 7 8" value="1 2 3 4 5 6 7 8">
-            <h3>&nbsp; și&nbsp;<code>deCăutat = &nbsp;</code></h3>
+            <h3>&nbsp; and&nbsp;<code>deCăutat = &nbsp;</code></h3>
             <input id="deCautatInput" type="number"  placeholder="7" value="7">
-            <h4>VECTORUL TREBUIE SĂ FIE SORTAT!</h4>
+            <h4>THE VECTOR MUST BE SORTED!</h4>
         </div>
 
         <div class="container">
 
             <div class="card">
-                <h2>Căutarea liniară</h2>
+                <h2>Linear search</h2>
                 <div class="cardContent">
                     <textarea class="code" spellcheck="false" readonly>
 #include <iostream>
@@ -61,20 +61,20 @@ int main()
 
     int deCautat;
     cin>>deCautat;
-    int status = 0;//0-Negăsit  1-Găsit
+    int status = 0;//0-NO  1-YES
 
     for(int i=0;(i<nrElemente) && (status==0);i++)
     {
         if(vector[i]==deCautat)
         {
-            cout<<"--->Am găsit valoarea "<<deCautat<<" la indexul "<<i<<".";
+            cout<<"--->I found the value "<<deCautat<<"at "<<i<<" index.";
             status=1;
         }
     }
 
     if(status==0)
     {
-        cout<<"--->Valoarea "<<deCautat<<" nu a fost găsită în vector.";
+        cout<<"--->The value "<<deCautat<<" was not found in the vector.";
     }
 
     return 0;
@@ -88,7 +88,7 @@ int main()
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card apare căutarea liniară in limbajul c++.
+                                This card shows linear search in the C++ language.
                             </div>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ int main()
 
 
             <div class="card">
-                <h2>Animație</h2>
+                <h2>Animation</h2>
                 <div class="cardContent">
 
                     <div id="animationContainer" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; align-items: center; height: 100%; padding: 20px;"></div>
@@ -113,7 +113,7 @@ int main()
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card apare animația căutării liniare.
+                                The linear search animation appears in this card.
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ int main()
 
 
             <div class="card">
-                <h2>Căutarea binară</h2>
+                <h2>Binary search</h2>
                 <div class="cardContent">
                     <textarea class="code" spellcheck="false" readonly>
 #include <iostream>
@@ -161,14 +161,14 @@ int main()
             r = m - 1;
         } else 
         {
-            cout << "--->Am găsit valoarea "<<deCautat<<" la indexul "<<m<<".";
+            cout<<"--->I found the value "<<deCautat<<"at "<<i<<" index.";
             ok = 1;
         }
     }
 
     if (ok == 0) 
     {
-        cout << "--->Valoarea "<<deCautat<<" nu a fost găsită în vector.";
+        cout<<"--->The value "<<deCautat<<" was not found in the vector.";
     }
 
     return 0;
@@ -182,7 +182,7 @@ int main()
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card apare căutarea binară in limbajul c++.
+                                This card shows binary search in the C++ language.
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@ int main()
 
 
            <div class="card">
-                <h2>Animație</h2>
+                <h2>Animation</h2>
                 <div class="cardContent">
                     <div id="binaryContainer" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; align-items: center; height: 100%; padding: 20px;"></div>
                 </div>
@@ -206,7 +206,7 @@ int main()
                         <div class="ico-container">
                             <i class="fa-solid fa-circle-info footerIco"></i>
                             <div class="details-box">
-                                În acest card apare animația căutării binare, utilizând un vector sortat pentru demonstrație vizuală.
+                                This card shows the animation of binary search, using a sorted vector for visual demonstration.
                             </div>
                         </div>
                     </div>
@@ -224,9 +224,9 @@ int main()
     </main>
 
     <footer>
-        <%- include('./partials/footer.ejs') %>
+        <%- include('./../partials/footer.ejs') %>
     </footer>
 
-    <script src="/js/lectia_2.js"></script>
+    <script src="/js/hard_lessons/hard_lessons__2.js"></script>
 </body>
 </html>

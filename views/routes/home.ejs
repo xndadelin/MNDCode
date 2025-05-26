@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./../partials/head.ejs') %>
+    <link href="/css/routes/home.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <%- include('./../partials/header.ejs') %>
+    </header>
+
+    <main>
+
+        <div id="image">
+            <img src="/images/MNDCodeLogo.png" alt="MNDCode Logo">
+        </div>
+
+        <div class="main-container">
+            <div class="main-title">Welcome to MNDCode!</div>
+            <div class="main-content">
+                <a href="/hard_lessons">
+                    <div class="card">
+                        <div class="card-title">Hard Lessons</div>
+                        <div class="card-description">
+                            Explore interactive lessons specially designed to improve your programming skills.
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/compiler">
+                    <div class="card">
+                        <div class="card-title">Online Compiler</div>
+                        <div class="card-description">
+                            Run and test your code directly in the browser, without the need for complicated settings.
+                        </div>
+                    </div>
+                </a>
+
+                </a>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </main>
+
+    <footer>
+        <%- include('./../partials/footer.ejs') %>
+    </footer>
+    
+
+
+</body>
+</html>
