@@ -1,12 +1,36 @@
+const fs=require('fs');
+const {exec}=require('child_process');
+
 const express=require('express');
 const app=express();
 
 app.set('view engine','ejs');
 
-app.listen(2100,'0.0.0.0');
-console.log("Listening for requests on port 2100...");
+app.listen(2100,'0.0.0.0',()=>
+{
+    console.log("Listening for requests on port 2100...");
+});
 
 app.use(express.static('public'));
+app.use(express.json());
+
+app.post('/run',(req,res)=>
+{
+    const code=req.body.code;
+    const filename ='program.cpp';
+
+    fs.writeFileSync(filename,code);
+
+    exec(`g++ ${filename} -o program && ./program`,(err,stdout,stderr)=>
+    {
+        if(err)
+        {
+            return res.send(stderr || err.message);
+        }
+        res.send(stdout);
+    });
+});
+
 
 app.get('/',(req,res)=>
 {
