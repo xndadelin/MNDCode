@@ -1,15 +1,86 @@
-body
+
+#dropdown
 {
-    background-image: url(/images/backgrounde.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
+    position: relative;
+    text-align: center;
+    background-color: blue;
+    width: 10%;
+    height: 30px;
+    font-size: 1.5em;
+    font-weight: 600;
+    border: solid rgb(255, 255, 255) 2px;
+    border-radius: 10px;
+    padding:2px;
 }
 
-main h1
+#dropdownExtend
 {
+    visibility:hidden;
+    position: absolute;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 60%;
+    height: auto;
+    background-color: aqua;
+    display: grid;
+    text-align: center;
+    left:30px;
+    top:33px;
+    padding: 10px;
+}
+
+#dropdown:hover #dropdownExtend
+{
+    visibility: visible;
+}
+
+#dropdownExtend >a
+{
+    padding: 6px;
+    font-size: 20px;
+    font-family:Oswald,sans-serif;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+#dropdownExtend > a:hover
+{
+    background-color: hsl(180, 100%, 90%);
+}
+
+#dropdownExtend > a:active
+{
+    background-color: hsl(180, 65%, 31%);
+}
+
+.element
+{
+    text-align: center;
+    background-color: blue;
+    min-width:80px;
+    width: 10%;
+    height: 30px;
+    font-size: 1.5em;
+    font-weight: 600;
+    border: solid rgb(255, 255, 255) 2px;
+    border-radius: 10px;
+    padding:2px;
+}
+main > nav
+{   
+    width: 100%;
+    height: 50px;
     display: flex;
+    align-items: center;
     justify-content: center;
+    column-gap: 10px;
 }
 
+main > nav > div:nth-child(4)
+{
+    min-width:80px;
+    background-color: rgb(207, 194, 194);
+    position: relative;
+    left:29%;
+    width: 10% ;
+}
