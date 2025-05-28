@@ -2,10 +2,7 @@
 using namespace std;
 int main()
 {
-    cout<<"Hello world!\n";
-    while(true)
-    {
-        cout<<"CACA\n";
-    }
+    cout<<"Sugi pula mogosu";
+    return 0;
 }
                 

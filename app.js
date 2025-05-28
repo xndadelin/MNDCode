@@ -14,7 +14,7 @@ app.listen(2100,'0.0.0.0',()=>
 app.use(express.static('public'));
 app.use(express.json());
 
-app.post('/run',(req,res)=>
+app.post('/api/compile',(req,res)=>
 {
     const code=req.body.code;
     const filename ='program.cpp';
@@ -23,12 +23,28 @@ app.post('/run',(req,res)=>
 
     exec(`g++ ${filename} -o program && ./program`,(err,stdout,stderr)=>
     {
-        if(err)
+        if(err || stderr)
         {
-            return res.send(stderr || err.message);
+            res.send(err.message || stderr);
+            return;
         }
         res.send(stdout);
     });
+});
+
+const weather=
+{
+    "city":"Suceava",
+    "temperature":30,
+    "rainProbability":80,
+    "clouds":true,
+    "lightnings":true,
+    "danger":1
+};
+
+app.get('/api/weather',(req,res)=>
+{
+    res.json(weather);
 });
 
 
