@@ -10,7 +10,7 @@
     src: url(/fonts/idk.ttf);
 }
 
-html
+html,body
 {
   overflow-x: hidden;
 }
