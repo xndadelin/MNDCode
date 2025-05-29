@@ -16,23 +16,42 @@ app.use(express.json());
 
 //////////API
 
-// app.post('/api/compile',(req,res)=>
-// {
-//     const code=req.body.code;
-//     const filename ='program.cpp';
+app.post('/api/compile',(req,res)=>
+{
+    const code=req.body.code;
+    const image=`compiler-${Date.now()}:latest`;
+    const cppfile=`program-${Date.now()}.cpp`;
 
-//     fs.writeFileSync(filename,code);
 
-//     exec(`g++ ${filename} -o program && ./program`,(err,stdout,stderr)=>
-//     {
-//         if(err || stderr)
-//         {
-//             res.send(err.message || stderr);
-//             return;
-//         }
-//         res.send(stdout);
-//     });
-// });
+    fs.writeFileSync(cppfile,code);
+    exec(`docker build --build-arg cppfile=${cppfile} -t ${image} .`,(err,stdout,stderr)=>
+    {
+        if(err)
+        {
+            res.send(`program.cpp:\n${stderr}`);
+            if(fs.existsSync(cppfile))
+            {
+                fs.unlinkSync(cppfile);
+            }
+            return;
+        }
+        if(fs.existsSync(cppfile))
+        {
+            fs.unlinkSync(cppfile);
+        }
+        exec(`docker run --rm ${image}`,(err,stdout,stderr)=>
+        {
+            if(err)
+            {
+                res.send(`program.cpp:\n${stderr}`);
+                exec(`docker rmi -f ${image}`);
+                return;
+            }
+            res.send(stdout);
+            exec(`docker rmi -f ${image}`);  
+        });
+    });
+});
 
 const weather=
 {
