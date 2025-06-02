@@ -2,6 +2,7 @@ const fs=require('fs');
 const {exec}=require('child_process');
 
 const express=require('express');
+const { title } = require('process');
 const app=express();
 
 app.set('view engine','ejs');
@@ -20,47 +21,101 @@ app.post('/api/compile',(req,res)=>
 {
     const code=req.body.code;
     const image=`compiler-${Date.now()}:latest`;
-    const cppfile=`program-${Date.now()}.cpp`;
 
 
-    fs.writeFileSync(cppfile,code);
-    exec(`docker build --build-arg cppfile=${cppfile} -t ${image} .`,(err,stdout,stderr)=>
+    fs.writeFileSync("program.cpp",code);
+    exec(`docker build -t ${image} .`,(err,stdout,stderr)=>
     {
+        if(fs.existsSync("program.cpp"))
+        {
+            fs.unlinkSync("program.cpp");
+        }
         if(err)
         {
             res.send(`program.cpp:\n${stderr}`);
-            if(fs.existsSync(cppfile))
-            {
-                fs.unlinkSync(cppfile);
-            }
             return;
-        }
-        if(fs.existsSync(cppfile))
-        {
-            fs.unlinkSync(cppfile);
         }
         exec(`docker run --rm ${image}`,(err,stdout,stderr)=>
         {
+            exec(`docker rmi -f ${image}`,()=>{});
             if(err)
             {
                 res.send(`program.cpp:\n${stderr}`);
-                exec(`docker rmi -f ${image}`);
+                exec(`docker image prune -f`);
                 return;
             }
             res.send(stdout);
-            exec(`docker rmi -f ${image}`);  
+            exec(`docker image prune -f`);
         });
     });
 });
 
-const weather=
+const weather = 
 {
-    "city":"Suceava",
-    "temperature":30,
-    "rainProbability":80,
-    "clouds":true,
-    "lightnings":true,
-    "danger":1
+    city: "Suceava",
+    date: "2025-06-01",
+    temperature: 
+    {
+        current: 19,
+        high: 24,
+        low: 12,
+        feelsLike: 19
+    },
+    conditions:
+    {
+        description: "Predominant însorit",
+        clouds: true,
+        rainProbability: 80,
+        precipitation: 
+        {
+            type: "averse de ploaie",
+            amount_mm: 15
+        },
+        lightnings: true,
+        thunderstormRisk: true
+    },
+    wind: 
+    {
+        speed_kmh: 29,
+        gusts_kmh: 35,
+        direction: "SE"
+    },
+    humidity: 74,
+    pressure_hPa: 1018,
+    uvIndex: 1,
+    dewPoint: 3,
+    visibility_km: 16,
+    airQuality:
+    {
+        index: "Moderat",
+        description: "Calitate acceptabilă a aerului"
+    },
+    sun: 
+    {
+        sunrise: "05:15",
+        sunset: "21:05"
+    },
+    moon: 
+    {
+        phase: "Lună în descreștere",
+        illumination: "47.1%"
+    },
+    pollen: 
+    {
+        birch: 0,
+        grass: 0,
+        ragweed: 0
+    },
+    alerts: 
+    [
+        {
+            type: "Cod galben",
+            issuedBy: "Administraţia Naţională de Meteorologie",
+            start: "14:00",
+            end: "20:00",
+            description: "Averse torențiale, descărcări electrice, intensificări ale vântului (50-70 km/h), vijelii și grindină. Cantități de apă de 15-25 l/mp, izolat până la 40 l/mp."
+        }
+    ]
 };
 
 app.get('/api/weather',(req,res)=>
@@ -78,6 +133,11 @@ app.get('/',(req,res)=>
 app.get('/compiler',(req,res)=>
 {
     res.render('routes/compiler',{title:"Compiler"});
+});
+
+app.get('/weather',(req,res)=>
+{
+    res.render('routes/weather',{title:"Weather"});
 });
 
 //Hard Lessons

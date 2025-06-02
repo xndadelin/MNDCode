@@ -15,10 +15,29 @@ header
     box-sizing: border-box;
     flex-wrap: wrap;
 }
+.logoAndWeather
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    margin-right: 10px;
+}
+
+nav > div > #icoA:visited
+{
+    color: #0b1d8e;
+}
+
+.weatherIco
+{
+    font-size: 2.3em;
+}
 
 .navbar ul {
     list-style: none;
     margin: 0;
+    margin-right: 70px;
     padding: 0;
     display: flex;
     gap: 20px;
