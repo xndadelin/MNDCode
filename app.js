@@ -135,11 +135,6 @@ app.get('/compiler',(req,res)=>
     res.render('routes/compiler',{title:"Compiler"});
 });
 
-app.get('/weather',(req,res)=>
-{
-    res.render('routes/weather',{title:"Weather"});
-});
-
 //Hard Lessons
 
 app.get('/hard_lessons', (req, res) => {

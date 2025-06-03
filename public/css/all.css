@@ -10,9 +10,17 @@
     src: url(/fonts/idk.ttf);
 }
 
+:root
+{
+    --footerHeaderColor:#1864ab;
+}
+
 html,body
 {
-  overflow-x: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 body 

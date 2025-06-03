@@ -1,23 +1,15 @@
 
-
-.content {
-    min-height: 80vh;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-}
-
-footer {
-    background-color: #1864ab;
+footer 
+{
+    background-color: var(--footerHeaderColor);
     color: white;
     padding: 30px 0;
-    margin-top: 30px;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(39, 19, 213, 0.6);
+    margin-top: auto;
 }
 
-.footer-container {
+.footerContainer 
+{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,21 +17,23 @@ footer {
     margin: 0 auto;
     padding: 0 20px;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
-.footer-copyright {
+.footerCopyright 
+{
     font-size: 14px;
     font-weight: 500;
 }
 
-.footer-links {
+.footerLinks 
+{
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
 }
 
-.footer-links a {
+.footerLinks a 
+{
     color: white;
     text-decoration: none;
     font-size: 14px;
@@ -48,18 +42,21 @@ footer {
     border-bottom: 2px solid transparent;
 }
 
-.footer-links a:hover {
+.footerLinks a:hover 
+{
     color: #90e0ef;
     border-bottom-color: #90e0ef;
 }
 
-.social-icons {
+.socialIcons 
+{
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.social-icons a {
+.socialIcons a 
+{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,62 +68,54 @@ footer {
     text-decoration: none;
 }
 
-.social-icons a:hover {
+.socialIcons a:hover 
+{
     background-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
 
-.ico {
+.ico 
+{
     font-size: 18px;
     color: white;
     transition: color 0.3s ease;
 }
 
-.ico:hover {
+.ico:hover 
+{
     color: #90e0ef;
 }
 
-@media screen and (max-width: 1024px) {
-    .footer-container {
-        justify-content: center;
-        text-align: center;
-        gap: 25px;
-    }
-    
-    .footer-links {
-        justify-content: center;
-    }
-}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     footer {
         padding: 25px 0;
     }
     
-    .footer-container {
+    .footerContainer {
         flex-direction: column;
         gap: 20px;
         padding: 0 15px;
     }
     
-    .footer-copyright {
+    .footerCopyright {
         order: 3;
         font-size: 13px;
     }
     
-    .footer-links {
+    .footerLinks {
         order: 1;
         gap: 20px;
         justify-content: center;
     }
     
-    .social-icons {
+    .socialIcons {
         order: 2;
         justify-content: center;
         gap: 20px;
     }
     
-    .social-icons a {
+    .socialIcons a {
         width: 45px;
         height: 45px;
     }
@@ -141,87 +130,61 @@ footer {
         padding: 20px 0;
     }
     
-    .footer-container {
+    .footerContainer {
         padding: 0 10px;
         gap: 15px;
     }
     
-    .footer-links {
+    .footerLinks {
         flex-direction: column;
         gap: 15px;
         align-items: center;
     }
     
-    .footer-links a {
+    .footerLinks a {
         font-size: 15px;
         padding: 8px 0;
     }
     
-    .footer-copyright {
+    .footerCopyright {
         font-size: 12px;
         text-align: center;
         line-height: 1.4;
     }
     
-    .social-icons {
+    .socialIcons {
         gap: 15px;
     }
     
-    .social-icons a {
+    .socialIcons a {
         width: 42px;
         height: 42px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .footer-container {
+    .footerContainer {
         padding: 0 5px;
     }
     
-    .footer-links a {
+    .footerLinks a {
         font-size: 14px;
     }
     
-    .footer-copyright {
+    .footerCopyright {
         font-size: 11px;
     }
     
-    .social-icons {
+    .socialIcons {
         gap: 12px;
     }
     
-    .social-icons a {
+    .socialIcons a {
         width: 38px;
         height: 38px;
     }
     
     .ico {
         font-size: 16px;
-    }
-}
-
-@media (hover: none) {
-    .footer-links a:hover {
-        color: white;
-        border-bottom-color: transparent;
-    }
-    
-    .social-icons a:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        transform: none;
-    }
-    
-    .ico:hover {
-        color: white;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a1a1a;
-    }
-    
-    .content {
-        color: #ccc;
     }
 }
