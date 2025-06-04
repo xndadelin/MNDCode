@@ -72,5 +72,7 @@ h1
     .card
     {
         min-width: 80%;
+        height: 380px;
+        font-size: 17px;
     }
 }

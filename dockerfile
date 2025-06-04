@@ -1,11 +1,13 @@
 
 
-FROM gcc:latest
+FROM gcc:13.2
 
 WORKDIR /app/
 
-COPY program.cpp .
+ARG FILE
 
-RUN g++ program.cpp -o program
+COPY running/${FILE} .
 
-CMD [ "timeout","5s","./program" ] 
+RUN g++ ${FILE} -o program
+
+CMD [ "timeout","5s","stdbuf","-oL","./program" ]    

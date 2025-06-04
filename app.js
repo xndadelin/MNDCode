@@ -20,32 +20,33 @@ app.use(express.json());
 app.post('/api/compile',(req,res)=>
 {
     const code=req.body.code;
-    const image=`compiler-${Date.now()}:latest`;
+
+    const image=`compiler-${Date.now()}-${Math.random().toString(36).slice(2)}:latest`;
+    const program=`program-${Date.now()}-${Math.random().toString(36).slice(2)}.cpp`;
 
 
-    fs.writeFileSync("program.cpp",code);
-    exec(`docker build -t ${image} .`,(err,stdout,stderr)=>
+    fs.writeFileSync(`running/${program}`,code);
+    exec(`docker build -t ${image} --build-arg FILE=${program} .`,(err,stdout,stderr)=>
     {
-        if(fs.existsSync("program.cpp"))
+        if(fs.existsSync(`running/${program}`))
         {
-            fs.unlinkSync("program.cpp");
+            fs.unlinkSync(`running/${program}`);
         }
         if(err)
         {
             res.send(`program.cpp:\n${stderr}`);
             return;
         }
-        exec(`docker run --rm ${image}`,(err,stdout,stderr)=>
+        exec(`docker run --cpus="0.5" --memory="128m" --pids-limit=64 --network=none --read-only --cap-drop=ALL --security-opt=no-new-privileges --rm ${image}`,(err,stdout,stderr)=>
         {
             exec(`docker rmi -f ${image}`,()=>{});
+            exec(`docker image prune -f`);
             if(err)
             {
-                res.send(`program.cpp:\n${stderr}`);
-                exec(`docker image prune -f`);
+                res.send(`program.cpp:\n${stderr}`);   
                 return;
             }
             res.send(stdout);
-            exec(`docker image prune -f`);
         });
     });
 });
