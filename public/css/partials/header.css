@@ -30,8 +30,15 @@
 
 .weatherIco
 {
+    cursor: pointer;
     font-size: 2.3em;
-    color: hsl(247, 80%, 26%);
+    color: hsl(247, 78%, 25%);
+}
+
+.weatherIco:hover
+{
+    cursor: pointer;
+    color: hsl(247, 88%, 33%);
 }
 
 .navbar > ul 

@@ -185,6 +185,11 @@ app.get('/languages/java',(req,res)=>
     res.render('languages/java',{title:"JAVA"});
 });
 
+app.get(`/soon`,(req,res)=>
+{
+    res.render("routes/soon",{title:"Coming soon"});
+});
+
 //////////FALLBACK
 
 app.use((req,res)=>
