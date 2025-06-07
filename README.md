@@ -22,4 +22,3 @@ node app.js
 ## 📞 Contact
 - EMAIL: mindrilavasilevalentin@gmail.com
 - STEAM: https://steamcommunity.com/id/valymnd/
-
