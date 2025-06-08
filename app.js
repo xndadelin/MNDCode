@@ -137,6 +137,11 @@ app.get('/compiler',(req,res)=>
     res.render('routes/compiler',{title:"Compiler"});
 });
 
+app.get(`/soon`,(req,res)=>
+{
+    res.render("routes/soon",{title:"Com ing soon"});
+});
+
 //Hard Lessons
 
 app.get('/hard_lessons', (req, res) => {
@@ -185,9 +190,11 @@ app.get('/languages/java',(req,res)=>
     res.render('languages/java',{title:"JAVA"});
 });
 
-app.get(`/soon`,(req,res)=>
+//Footer
+
+app.get('/about',(req,res)=>
 {
-    res.render("routes/soon",{title:"Coming soon"});
+    res.render('footer/about',{title:"About"});
 });
 
 //////////FALLBACK
