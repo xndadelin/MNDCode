@@ -207,6 +207,11 @@ app.get('/privacy_policy',(req,res)=>
     res.render('footer/privacy_policy',{title:"Privacy Policy"});
 });
 
+app.get('/terms_and_conditions',(req,res)=>
+{
+    res.render('footer/terms_and_conditions',{title:"Terms And Conditions"});
+});
+
 //////////FALLBACK
 
 app.use((req,res)=>
