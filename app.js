@@ -197,9 +197,16 @@ app.get('/about',(req,res)=>
     res.render('footer/about',{title:"About"});
 });
 
+app.get('/contact',(req,res)=>
+{
+    res.render('footer/contact',{title:"Contact"})
+});
+
 //////////FALLBACK
 
 app.use((req,res)=>
 {
     res.status(404).render('routes/404',{title:"404"});
 });
+
+
