@@ -199,7 +199,12 @@ app.get('/about',(req,res)=>
 
 app.get('/contact',(req,res)=>
 {
-    res.render('footer/contact',{title:"Contact"})
+    res.render('footer/contact',{title:"Contact"});
+});
+
+app.get('/privacy_policy',(req,res)=>
+{
+    res.render('footer/privacy_policy',{title:"Privacy Policy"});
 });
 
 //////////FALLBACK
