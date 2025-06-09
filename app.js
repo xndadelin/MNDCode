@@ -165,6 +165,11 @@ app.get('/hard_lessons/3',(req,res)=>
 
 //Languages
 
+app.get('/languages',(req,res)=>
+{
+    res.render('languages/languages',{title:"Languages"});
+});
+
 app.get('/languages/c',(req,res)=>
 {
     res.render('languages/c',{title:"C"});
@@ -188,6 +193,31 @@ app.get('/languages/go',(req,res)=>
 app.get('/languages/java',(req,res)=>
 {
     res.render('languages/java',{title:"JAVA"});
+});
+
+app.get('/languages/python',(req,res)=>
+{
+    res.render('languages/python',{title:"Python"});
+});
+
+app.get('/languages/html',(req,res)=>
+{
+    res.render('languages/html',{title:"Html"});
+});
+
+app.get('/languages/js',(req,res)=>
+{
+    res.render('languages/js',{title:"JS"});
+});
+
+app.get('/languages/css',(req,res)=>
+{
+    res.render('languages/css',{title:"CSS"});
+});
+
+app.get('/languages/php',(req,res)=>
+{
+    res.render('languages/php',{title:"PHP"});
 });
 
 //Footer
