@@ -12,9 +12,100 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>PHP</h1>
     <main>
-        <h1>PHP</h1>
+        <div class="card">
+            <h2>Syntax Basics</h2>
+            <textarea>
+    <?php
+
+    echo "Hello, PHP!";
+
+    $name = "Alice";
+
+    $age = 25;
+
+    ?>
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Variables & Types</h2>
+            <textarea>
+    $int = 10;
+
+    $float = 5.6;
+
+    $str = "Text";
+
+    $bool = true;
+
+    $array = [1, 2, 3];
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Conditions</h2>
+            <textarea>
+    if ($age >= 18) 
+    {
+        echo "Adult";
+    } else 
+    {
+        echo "Minor";
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Loops</h2>
+            <textarea>
+    for ($i = 0; $i < 5; $i++) 
+    {
+        echo $i;
+    }
+
+    foreach ($array as $value) 
+    {
+        echo $value;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Functions</h2>
+            <textarea>
+    function greet($name) 
+    {
+        return "Hello " . $name;
+    }
+
+    echo greet("Bob");
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Forms & POST</h2>
+            <textarea>
+    <form method="post">
+
+        <input name="user">
+
+        <button type="submit">Send</button>
+
+    </form>
+
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
+    {
+        echo $_POST["user"];
+    }
+    ?>
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>

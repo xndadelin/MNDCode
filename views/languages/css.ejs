@@ -12,9 +12,98 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>CSS</h1>
     <main>
-        <h1>CSS</h1>
+        <div class="card">
+            <h2>Selectors</h2>
+            <textarea>
+    /* Element selector */
+    p 
+    {
+        color: red;
+    }
+
+    /* Class selector */
+    .box 
+    {
+        border: 1px solid black;
+    }
+
+    /* ID selector */
+    #header 
+    {
+        background-color: yellow;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Box Model</h2>
+            <textarea>
+    div 
+    {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #000;
+        width: 300px;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Typography</h2>
+            <textarea>
+    body 
+    {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Colors & Backgrounds</h2>
+            <textarea>
+    .container 
+    {
+        color: white;
+        background-color: #333;
+        background-image: url("bg.jpg");
+        background-size: cover;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Flexbox</h2>
+            <textarea>
+    .flex 
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Transitions</h2>
+            <textarea>
+    button 
+    {
+        transition: background 0.3s ease;
+    }
+
+    button:hover 
+    {
+        background: lightblue;
+    }
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>
