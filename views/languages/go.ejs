@@ -12,9 +12,119 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>GO(Golang)</h1>
     <main>
-        <h1>GO</h1>
+        <div class="card">
+            <h2>Example</h2>
+            <textarea readonly>
+    package main
+
+    import "fmt"
+
+    func main() {
+        var n int
+        fmt.Print("Input: ")
+        fmt.Scan(&n)
+        fmt.Println("You entered:", n)
+    }
+
+    OUTPUT:
+
+    Input: 5
+    You entered: 5
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Variables</h2>
+            <textarea>
+    - int - EX: 100 - Size: depends on system (commonly 4 or 8 bytes)
+    - float32 - EX: 5.67 - Size: 4 bytes
+    - float64 - EX: 5.678 - Size: 8 bytes
+    - byte - EX: 'A' - Alias for uint8 - Size: 1 byte
+    - rune - EX: '字' - Unicode code point - Size: 4 bytes
+    - string - EX: "Hello" - Size: depends on length
+    - bool - EX: true / false - Size: 1 byte
+    - uint, int8, int16, int32, int64 - various sizes
+    - var name type = value  OR  name := value
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Input</h2>
+            <textarea>
+    import "fmt"
+
+    var number int
+
+    fmt.Print("Enter number: ")
+
+    fmt.Scan(&number)
+
+    fmt.Println("Number:", number)
+
+    var character rune
+
+    fmt.Print("Enter character: ")
+
+    fmt.Scanf("%c", &character)
+
+    fmt.Println("Character:", string(character))
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Output</h2>
+            <textarea>
+    fmt.Print("text")            // No newline
+
+    fmt.Println("text")         // With newline
+
+    fmt.Printf("Value: %d\n", x) // Formatted
+
+    fmt.Println('A')             // Runes as int
+
+    fmt.Println(string(65))      // Outputs: A
+
+    fmt.Println("Line1\nLine2")  // New lines
+
+    fmt.Println("Tab\tHere")     // Tab
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Comments</h2>
+            <textarea>
+    // This is a single-line comment
+
+    /*
+    This is a multi-line comment.
+    It can span multiple lines.
+    */
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Functions</h2>
+            <textarea>
+    func Add(a int, b int) int {
+        return a + b
+    }
+
+    // Call:
+    result := Add(5, 3)
+    fmt.Println(result)
+
+    func Greet(name string) {
+        fmt.Println("Hello", name)
+    }
+
+    // void = no return value in Go
+    // Function names start with lowercase (private) or uppercase (exported)
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>

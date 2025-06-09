@@ -12,12 +12,136 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>CS/C#</h1>
     <main>
-        <h1>CS</h1>
+        <div class="card">
+            <h2>Example</h2>
+            <textarea readonly>
+    using System;
+    class Program
+    {
+        static void Main()
+        {
+            int n;
+            Console.Write("Input: ");
+            n = int.Parse(Console.ReadLine());
+            Console.WriteLine("You entered: " + n);
+        }
+    }
+
+    OUTPUT:
+
+    Input: 5
+    You entered: 5
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Variables</h2>
+            <textarea>
+    - int - EX: 100 - Size: 4 bytes
+
+    - float - EX: 5.67f - Size: 4 bytes
+
+    - double - EX: 5.678 - Size: 8 bytes
+
+    - char - EX: 'A' - Size: 2 bytes
+
+    - string - EX: "Hello" - Size: depends on content
+
+    - bool - EX: true/false - Size: 1 byte
+
+    - long - EX: 1000000L - Size: 8 bytes
+
+    - short - EX: 100 - Size: 2 bytes
+
+    - decimal - EX: 10.5m - Size: 16 bytes
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Input</h2>
+            <textarea>
+    int number;
+
+    Console.Write("Enter number: ");
+
+    number = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("Number: " + number);
+
+
+    char character;
+
+    Console.Write("Enter character: ");
+
+    character = char.Parse(Console.ReadLine());
+
+    Console.WriteLine("Character: " + character);
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Output</h2>
+            <textarea>
+    Console.WriteLine("text");
+
+    Console.WriteLine(variable);
+
+    Console.Write("Same line ");
+
+    Console.WriteLine(); // Empty line
+
+    Console.WriteLine('A');
+
+    Console.WriteLine((char)65); // Outputs: A
+
+    Console.WriteLine("Hello\tWorld"); // Tab
+
+    Console.WriteLine("Line1\nLine2"); // New line
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Comments</h2>
+            <textarea>
+    // This is a single-line comment
+
+    /* 
+
+    This is a multi-line comment
+
+    Spans multiple lines
+    
+    */
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Functions</h2>
+            <textarea>
+    static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    // Usage:
+    int result = Add(5, 3);
+    Console.WriteLine(result);
+
+    // void function (no return)
+    static void Greet(string name)
+    {
+        Console.WriteLine("Hello " + name);
+    }
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>
     </footer>
 </body>
 </html>
+

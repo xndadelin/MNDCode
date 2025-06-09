@@ -12,9 +12,110 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>Python</h1>
     <main>
-        <h1>Python</h1>
+        <div class="card">
+            <h2>Example</h2>
+            <textarea readonly>
+    n = int(input("Input: "))
+
+    print("You entered:", n)
+
+    OUTPUT:
+
+    Input: 5
+
+    You entered: 5
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Variables</h2>
+            <textarea>
+    # No explicit types, dynamic typing
+
+    x = 100        # int
+
+    y = 5.67       # float
+
+    z = "Hello"    # str
+
+    c = 'A'        # str (1 character)
+
+    b = True       # bool
+
+    d = None       # null/void
+
+    # Type check: type(x)
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Input</h2>
+            <textarea>
+    number = int(input("Enter number: "))
+
+    print("Number:", number)
+
+
+    character = input("Enter character: ")[0]
+
+    print("Character:", character)
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Output</h2>
+            <textarea>
+    print("text")
+
+    print(variable)
+
+    print("Line1\nLine2")  # New line
+
+    print("Tab\tHere")     # Tab
+
+    print(chr(65))         # Outputs: A
+
+    print("Multiple", "items", 123)
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Comments</h2>
+            <textarea>
+
+    # This is a single-line comment
+
+    '''
+
+    This is a multi-line comment
+
+    Using triple quotes
+
+    '''
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Functions</h2>
+            <textarea>
+    def add(a, b):
+        return a + b
+
+    # Usage:
+    result = add(5, 3)
+
+    print(result)
+
+    def greet(name):
+        print("Hello", name)
+
+    # No return = void
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>

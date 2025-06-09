@@ -12,9 +12,119 @@
         <%- include('./../partials/header.ejs') %>
     </header>
 
+    <h1>JAVA</h1>
     <main>
-        <h1>JAVA</h1>
+        <div class="card">
+            <h2>Example</h2>
+            <textarea readonly>
+    import java.util.Scanner;
+
+    public class Main {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Input: ");
+            int n = sc.nextInt();
+            System.out.println("You entered: " + n);
+        }
+    }
+
+    OUTPUT:
+
+    Input: 5
+    You entered: 5
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Variables</h2>
+            <textarea>
+    - int - EX: 100 - Size: 4 bytes
+
+    - float - EX: 5.67f - Size: 4 bytes
+
+    - double - EX: 5.678 - Size: 8 bytes
+
+    - char - EX: 'A' - Size: 2 bytes
+
+    - String - EX: "Hello" - Size: depends
+
+    - boolean - EX: true/false - Size: 1 bit
+
+    - long - EX: 1000000L - Size: 8 bytes
+
+    - short - EX: 100 - Size: 2 bytes
+
+    - byte - EX: 127 - Size: 1 byte
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Input</h2>
+            <textarea>
+    import java.util.Scanner;
+
+    Scanner sc = new Scanner(System.in);
+
+    int number = sc.nextInt();
+
+    System.out.println("Number: " + number);
+
+    char character = sc.next().charAt(0);
+
+    System.out.println("Character: " + character);
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Output</h2>
+            <textarea>
+    System.out.print("text");      // No newline
+
+    System.out.println("text");    // With newline
+
+    System.out.println(variable);
+
+    System.out.println((char)65); // Outputs: A
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Comments</h2>
+            <textarea>
+
+    // This is a single-line comment
+
+    /*
+
+    This is a multi-line comment
+    */
+
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Functions</h2>
+            <textarea>
+    public static int add(int a, int b) 
+    {
+        return a + b;
+    }
+
+    // Usage:
+
+    int result = add(5, 3);
+    System.out.println(result);
+
+    // void = no return value
+
+    public static void greet(String name) 
+    {
+        System.out.println("Hello " + name);
+    }
+            </textarea>
+        </div>
     </main>
+
 
     <footer>
         <%- include('./../partials/footer.ejs') %>
