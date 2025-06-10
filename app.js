@@ -1,9 +1,17 @@
 const fs=require('fs');
 const {exec}=require('child_process');
 
+const pg=require('pg');
+const client= new pg.Client(
+{
+    host: 'localhost',
+    user: 'postgres',
+    password: '042020',
+    database: 'mndcode',
+    port: 5432
+});
+
 const express=require('express');
-const { title } = require('process');
-const { kMaxLength } = require('buffer');
 const app=express();
 
 app.set('view engine','ejs');
@@ -15,6 +23,8 @@ app.listen(2100,'0.0.0.0',()=>
 
 app.use(express.static('public'));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 //////////API
 
@@ -125,6 +135,25 @@ app.get('/api/weather',(req,res)=>
     res.json(weather);
 });
 
+app.post('/api/register',(req,res)=>
+{
+    const username=req.body.username;
+    const email=req.body.email;
+    const password=req.body.password;
+    const confirmPassword=req.body.confirmPassword;
+
+    // console.log("Username:", username);
+    // console.log("Email:", email);
+    // console.log("Password:", password);
+    // console.log("Confirm Password:", confirmPassword);
+
+    res.redirect('/login');
+});
+
+app.post('/api/login',(req,res)=>
+{
+    res.redirect('/');
+});
 //////////Routes
 
 app.get('/',(req,res)=>
@@ -147,6 +176,11 @@ app.get(`/soon`,(req,res)=>
 app.get('/register',(req,res)=>
 {
     res.render('account/register',{title:"Register"});
+});
+
+app.get('/login',(req,res)=>
+{
+    res.render('account/login',{title:"Login"});
 });
 
 //Hard Lessons

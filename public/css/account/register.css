@@ -160,6 +160,17 @@ p
     font-size: 20px;
 }
 
+a:link
+{
+    color: blue;
+}
+
+a:visited
+{
+    color: blue;
+}
+
+
 button
 {
     width: 200px;

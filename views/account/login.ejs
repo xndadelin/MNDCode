@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/account/login.css">
+</head>
+<body>
+    <main>
+        <div id="container">
+
+            <h2>Login</h2>
+            <form action="/api/login" method="POST" id="loginForm">
+
+                <label for="email">Email</label>
+                <br>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <br>
+
+                <label for="password">Password</label>
+                <br>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <br>
+
+                <br>
+                <br>
+                <br>
+                <button type="submit">Register</button>
+                <br>
+  
+            </form>
+            <p style="margin-top:30px;" id="errors"></p>
+
+            <p>Don't have an account? <a href="/register">Register</a></p>
+        </div>
+        
+    </main>
+    <script src="/js/account/login.js"></script>
+</body>
+</html> 
+<!-- This is the login page for users to access their accounts. It includes fields for email and password. The form submits to the /api/login endpoint. -->
+<!-- The page also includes a link to the registration page for users who do not have an account. -->
