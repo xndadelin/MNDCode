@@ -27,6 +27,12 @@
                     </div>
                 </div>
             </a>
+
+            <div id="info">
+        <div class="digitalClock" id="digitalClock">00:00:00</div>
+        <div class="dateDisplay" id="dateDisplay">Încărcare...</div>
+
+    </div>
             
             <a href="/compiler">
                 <div class="startCardContent">
@@ -51,13 +57,17 @@
             <a href="/languages/php">PHP</a>
         </div>
 
+        <div id="know">
+            <h3>Did you know:</h2>
+            <h4 id="knowText"></h4>
+        </div>
+
     </main>
 
     <footer>
         <%- include('./../partials/footer.ejs') %>
     </footer>
-    
-
+    <script src="js/routes/home.js"></script>
 
 </body>
 </html>

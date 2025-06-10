@@ -212,6 +212,11 @@ app.get('/languages',(req,res)=>
     res.render('languages/languages',{title:"Languages"});
 });
 
+app.get('/languages/help',(req,res)=>
+{
+    res.render('languages/help',{title:"Help"});
+});
+
 app.get('/languages/c',(req,res)=>
 {
     res.render('languages/c',{title:"C"});

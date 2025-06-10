@@ -1,0 +1,22 @@
+
+main
+{
+    margin: 30px;
+    margin-top: 0;
+}
+
+main > h1
+{
+    text-align: center;
+}
+
+main > h2
+{
+    margin-bottom: 0;
+}
+
+main > h3
+{
+    margin-left: 20px;
+    margin-top: 0;
+}

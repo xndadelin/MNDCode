@@ -36,3 +36,4 @@ async function SendRequest()
     const result = await response.text();
     document.getElementById('output').textContent = result;
 }
+
