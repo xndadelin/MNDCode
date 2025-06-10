@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/account/register.css">
+</head>
+<body>
+    <main>
+        <div id="container">
+
+            <h2>Register</h2>
+            <form action="/api/register" method="POST" id="registerForm">
+
+                <label for="username">Username</label>
+                <br>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <br>
+
+                <label for="email">Email</label>
+                <br>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <br>
+
+                <label for="password">Password</label>
+                <br>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <br>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <br>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <br>
+                <br>
+
+                <br>
+                <button type="submit">Register</button>
+                <br>
+  
+            </form>
+
+            <p style="margin-top:30px;" id="errors"></p>
+
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+        
+    </main>
+    <script src="/js/account/register.js"></script>
+</body>
+</html>

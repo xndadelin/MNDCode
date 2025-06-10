@@ -142,9 +142,17 @@ app.get(`/soon`,(req,res)=>
     res.render("routes/soon",{title:"Com ing soon"});
 });
 
+//Login
+
+app.get('/register',(req,res)=>
+{
+    res.render('account/register',{title:"Register"});
+});
+
 //Hard Lessons
 
-app.get('/hard_lessons', (req, res) => {
+app.get('/hard_lessons', (req, res) => 
+{
     res.render('hard_lessons/hard_lessons', { title: "Hard Lessons" });
 });
 
