@@ -4,9 +4,16 @@
 ## 🚀 Introduction  
 **MNDCode** is an interactive platform designed to teach programming concepts `step by step`. Whether you're a beginner or looking to polish your skills, **MNDCode** provides engaging lessons and practical exercises.
 
+## 👨‍💻 Perfect for
+
+- Absolute beginners starting their coding journey
+- Intermediate learners who want to reinforce fundamentals
+- Teachers looking for interactive tools to engage students
+- Anyone who enjoys learning by building
+
 ## 👀 Preview
 **Home**    
-ljujioujujrflnnnnnnmmmkkkkkkkkokkokkkmkm
+
 ![Home](./MD_Assets/Home.png)    
 
 **Compiler**
