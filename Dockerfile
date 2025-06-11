@@ -1,7 +1,6 @@
-# Imagine de bază Node.js
 FROM node:18
 
-# Actualizează și instalează pachete necesare
+# Instalează g++, PostgreSQL dev tools
 RUN apt-get update && apt-get install -y \
     g++ \
     libpq-dev \
@@ -10,14 +9,17 @@ RUN apt-get update && apt-get install -y \
 # Setează directorul de lucru
 WORKDIR /app
 
-# Copiază fișierele de configurare și codul sursă
+# Copiază fișierele aplicației
 COPY package*.json ./
 COPY . .
 
 # Instalează dependențele
 RUN npm install
 
-# Expune portul pe care rulează aplicația
+# Creează folderul "running"
+RUN mkdir -p /app/running
+
+# Expune portul aplicației
 EXPOSE 2100
 
 # Rulează aplicația
