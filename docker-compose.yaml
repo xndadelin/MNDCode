@@ -5,6 +5,8 @@ services:
     build: .
     ports:
       - "2100:2100"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # pentru acces la Docker-ul hostului
     depends_on:
       - db
     environment:
@@ -23,6 +25,8 @@ services:
       POSTGRES_DB: mndcode
     ports:
       - "5432:5432"
-
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
