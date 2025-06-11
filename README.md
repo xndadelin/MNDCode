@@ -4,6 +4,8 @@
 ## 🚀 Introduction  
 **MNDCode** is an interactive platform designed to teach programming concepts `step by step`. Whether you're a beginner or looking to polish your skills, **MNDCode** provides engaging lessons and practical exercises.
 
+## 👀 Preview
+
 ## ⚙️ Installation  
 **Clone the repo**  
 ```bash
@@ -22,3 +24,4 @@ node app.js
 ## 📞 Contact
 - EMAIL: mindrilavasilevalentin@gmail.com
 - STEAM: https://steamcommunity.com/id/valymnd/
+- 
