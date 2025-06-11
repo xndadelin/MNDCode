@@ -4,7 +4,7 @@ const {exec}=require('child_process');
 const pg=require('pg');
 const client= new pg.Client(
 {
-    host: 'localhost',
+    host: 'db',
     user: 'postgres',
     password: '042020',
     database: 'mndcode',
