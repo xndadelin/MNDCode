@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "2100:2100"
+    depends_on:
+      - db
+    environment:
+      PGHOST: db
+      PGUSER: postgres
+      PGPASSWORD: 042020
+      PGDATABASE: mndcode
+      PGPORT: 5432
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 042020
+      POSTGRES_DB: mndcode
+    ports:
+      - "5432:5432"
